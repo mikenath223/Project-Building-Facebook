@@ -54,10 +54,9 @@ body {
 }
 
 .form-label-group {
-  position: relative;
-  margin-bottom: 0.7rem;
-  height: 90px;
+  margin-bottom: 25px;
 }
+
 
 .form-label-group input {
   height: auto;
@@ -69,16 +68,11 @@ body {
 }
 
 .form-label-group>label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* Override default `<label>` margin */
-  line-height: 1.5;
+  line-height: 2.0;
   color: #495057;
   border: 1px solid transparent;
   border-radius: .25rem;
   transition: all .1s ease-in-out;
-  margin-bottom: 50px;
 }
 
 .form-label-group input::-webkit-input-placeholder {
@@ -111,15 +105,9 @@ body {
 .btn-facebook {
   color: white;
   background-color: #3b5998;
-  width: 250px;
+  width: 100%;
   display: block;
   margin: auto;
-}
-
-.form-signin * {
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-top: 20px;
 }
 
 
