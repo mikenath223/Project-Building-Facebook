@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<!-- <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -26,37 +26,46 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render "devise/shared/links" %> -->
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-      <div class="card card-signin my-5">
-        <div class="card-body">
-          <h5 class="card-title text-center">Sign In</h5>
-          <form class="form-signin">
-            <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-              <label for="inputEmail">Email address</label>
-            </div>
+<div class="container form-container">
+  <div class="card card-signin my-5">
+    <div class="card-body">
+      <h1 class="text-center">Sign Up</h1>
+      <div class="form-signin">
 
-            <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-              <label for="inputPassword">Password</label>
-            </div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-            <div class="custom-control custom-checkbox mb-3">
-              <input type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1">Remember password</label>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
-            <hr class="my-4">
-            <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
-            <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
-          </form>
+        <div class="form-label-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "inputPassword" %>
         </div>
+
+
+        <div class="form-label-group">
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "new-password", id: "inputPassword", class: "form-control"  %>
+        </div>
+
+        <div class="form-label-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "inputPassword", class: "form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: "btn btn-lg btn-primary btn-block text-uppercase" %>
+        </div>
+        <% end %>
+        <hr class="my-4">
+        <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit">Sign in with Facebook</button>
+
+       <h4>Already signed up? <%= render "devise/shared/links"%></h4>
+
       </div>
     </div>
   </div>
-</div>
