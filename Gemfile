@@ -22,7 +22,6 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'jquery-rails'
@@ -53,6 +52,9 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'minitest-reporters'
+  gem 'guard',  '2.13.0'
+  gem 'guard-minitest', '2.4.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

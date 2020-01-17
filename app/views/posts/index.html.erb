@@ -1,0 +1,15 @@
+<%= provide(:title, 'All users') %>
+
+<h2>Post Feed</h2>
+
+<div class="container">
+  <ul>
+    <% @posts.each do |p| %>
+    <li> <%= gravatar_for p.user, size: 50 %></li>
+    <li><%= link_to 'View user', user_path(p.user) %></li>
+    <li>Title: <%= p.title %></li>
+    <li>Content: <%= p.content %></li>
+    <hr>
+    <% end %>
+  </ul>
+</div>

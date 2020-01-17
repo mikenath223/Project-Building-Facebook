@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = 'Post created successfully'
-      redirect_to root_path
+      redirect_to post_path(@post)
     else
       flash[:info] = 'There was an issue saving your post.'
       render :new
@@ -31,7 +31,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def index; end
+  def index
+    @posts = Post.all
+  end
 
   def show
     @post = Post.find(params[:id])
