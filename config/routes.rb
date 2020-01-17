@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
+    get '/users' => 'users#index'
   end
+
+  # get '/profile/:id/update', to: 'users#edit', as
 end
