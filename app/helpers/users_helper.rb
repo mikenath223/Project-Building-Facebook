@@ -6,4 +6,8 @@ module UsersHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     image_tag(gravatar_url, alt: user.nickname, class: "gravatar")
   end
+
+  def posts_exist?(user)
+    !user.posts.empty?
+  end
 end
