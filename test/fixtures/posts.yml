@@ -1,10 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 post1:
-  title: 'MyString'
-  content: 'MyString'
+  user: mike
+  title: 'Hey my first post'
+  created_at: <%= 10.minutes.ago %>
 
-two:
-  user: two
-  title: MyString
-  content: MyString
+post2:
+  user: mike
+  title: 'I did it again'
+  created_at: <%= 1.hour.ago %>
+
+post3:
+  user: mike
+  title: 'My third post'
+  created_at: <%= 1.year.ago %>
+
+most_recent:
+  user: mike
+  title: 'Am on a roll'
+  created_at: <%= Time.zone.now %>
