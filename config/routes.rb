@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     get '/users' => 'users#index'
   end
 
+  get '/user/:id', to: 'users#show', as: 'user'
   # get '/profile/:id/update', to: 'users#edit', as
 end

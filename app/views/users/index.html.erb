@@ -4,13 +4,13 @@
 
 <div class="container">
   <ul>
-    <%= @users.each do |u| %>
-    <%= gravatar_for u, size: 50 %>
-    <%= link_to u.nickname, users_path %>
-    Nickname: <%= u.nickname %>
-    Location: <%= u.location %>
-    Gender: <%= u.gender %>
-    Age: <%= u.age %>
+    <% @users.each do |u| %>
+   <li> <%= gravatar_for u, size: 50 %></li>
+    <li><%= link_to 'View user', user_path(u) %></li>
+    <li>Nickname: <%= u.nickname %></li>
+    <li>Location: <%= u.location %></li>
+    <li>Gender: <%= u.gender %></li>
+   <li> Age: <%= u.age %></li>>
     <% end %>
   </ul>
 </div>
