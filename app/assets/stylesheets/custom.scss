@@ -1,3 +1,11 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 :root {
   --input-padding-x: 1.5rem;
@@ -113,6 +121,89 @@ body {
   width: 100%;
   display: block;
   margin: auto;
+}
+
+.links {
+  background-color: rgba(54, 41, 10, 0.5);
+  text-align: center;
+  padding: 9px;
+  margin: 7px;
+  border-radius: 5px;
+  border: 1px solid rgba(54, 41, 10, 0.7);
+  a {
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: underline;
+    & * {
+      margin: 3px;
+    }
+  }
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: black;
+  }
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+nav .nav .user-btn {
+  margin: 4px;
+  height: 46px;
+  background-color: lightblue;
+  border-radius: 5px;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a{
+    border-radius: 5px;
+    height: 46px;
+    margin-top: -6px;
+  }
+
+  @include box_sizing;
+  &:hover{
+    background-color: white;
+    border-color: lightblue;
+  }
+}
+
+.navbar-custom {
+  background-color: #53200779;
 }
 
 
