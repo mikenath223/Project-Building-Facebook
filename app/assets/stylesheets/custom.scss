@@ -13,20 +13,27 @@
 }
 
 body {
-  background: #007bff;
-  background: linear-gradient(to right, #0062E6, #33AEFF);
+  background: #007bffcc;
+  background: linear-gradient(to right, #0062E6, rgba(51, 173, 255, 0.658));
   font-size: 20px;
 }
 
-.container {
+ul {
+  li {
+    list-style: none;
+  }
+}
+
+.container-box {
+  margin: 70px;
   background-color: #fff;
-  padding: 10px;
 }
 
 .form-container {
   margin: auto;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -35,12 +42,12 @@ body {
 .card-signin {
   margin: auto;
   flex-grow: 2;
-  min-width: 300px;
-  max-width: 400px;
+  min-width: 500px;
+  max-width: 700px;
   background-color: #fff;
   border: 0;
   border-radius: 1rem;
-  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
 }
 
 .card-signin .card-title {
@@ -203,7 +210,7 @@ nav .nav .user-btn {
 }
 
 .navbar-custom {
-  background-color: #53200779;
+  background-color: rgba(36, 174, 228, 0.822);
 }
 
 
