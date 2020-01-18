@@ -1,0 +1,17 @@
+<%= provide(:title, 'All users') %>
+
+<h2>FaceBrook Registered Users</h2>
+
+<div class="container">
+  <ul>
+    <% @users.each do |u| %>
+   <li> <%= gravatar_for u, size: 50 %></li>
+    <li><%= link_to 'View user', user_path(u) %></li>
+    <li>Nickname: <%= u.nickname %></li>
+    <li>Location: <%= u.location %></li>
+    <li>Gender: <%= u.gender %></li>
+   <li> Age: <%= u.age %></li>
+   <hr>
+    <% end %>
+  </ul>
+</div>

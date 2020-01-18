@@ -1,0 +1,28 @@
+<%= provide(:title, 'Post') %>
+
+<h1><%= @user.nickname || @user.email %> profile</h1>
+
+<ul>
+<li> <%= gravatar_for @user, size: 50 %></li>
+<li>Nickname: <%= @user.nickname || "Nickname not set" %></li>
+<li>Location: <%= @user.location || "We don't know where you are" %></li>
+<li>Gender: <%= @user.gender || "We dont know what you are!!" %></li>
+<li>Age: <%= @user.age || "We don't know how old are you" %></li>
+</ul>
+
+<h1> User Posts </h1>
+
+<%if posts_exist?(@user) %>
+<% @user.posts.each do |p|%>
+<ul>
+<li> <%= p.title %> </li>
+<li> <%= p.content %> </li>
+<li> <%= p.created_at.to_date%> </li>
+</ul>
+<% end %>
+<%else%>
+
+<p> No posts created by user</p>
+
+
+<% end %>
