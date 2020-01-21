@@ -5,3 +5,12 @@
   <li><%= @post.title %></li>
   <li><%= @post.content %></li>
 </ul>
+<div>
+  <h2>Add comments</h2>
+  <%= form_for @comment do |f| %>
+    <%= f.label :content %>
+    <%= f.text_area :content, class: 'form-control' %>
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <%= f.submit "Add Comment", class: "btn btn-success"%>
+  <% end %>
+</div>

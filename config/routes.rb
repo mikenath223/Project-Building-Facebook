@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  # get 'comments/new'
+  # post 'comments/create'
+  # get 'comments/edit'
+  # post 'comments/update'
+
+  resources :comments
   devise_for :users
   resources :posts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
