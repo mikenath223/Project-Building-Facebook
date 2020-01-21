@@ -15,9 +15,18 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @comment = Comment.find(params[:id])
   end
 
   def update
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      flash[:success] = "Comment updated successfully."
+      redirect_to 
+    else
+      flash[:danger] = "Error in comment creation."
+      redirect_to path
+    end
   end
 
   private
