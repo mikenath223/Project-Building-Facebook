@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @post = Post.find(post_id)
     if @comment.save
       user = User.find(Post.find(post_id).user_id)
-      flash[:success] = "Your comment was added to #{user.nickname}'s post."
+      flash[:success] = "Your comment was added to #{user.nickname || user.email}'s post."
       redirect_to @post
     else
       flash[:danger] = "An error occurred while adding your comment. Try again."

@@ -6,7 +6,7 @@
   <ul>
     <% @posts.each do |p| %>
     <li> <%= gravatar_for p.user, size: 50 %></li>
-    <li><%= link_to 'View user', user_path(p.user) %></li>
+    <li><%= link_to 'View Post', post_path(p) %></li>
     <li>Title: <%= p.title %></li>
     <li>Content: <%= p.content %></li>
     <hr>
