@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
   def setup
     @post = posts(:post1)
-    @comment = Comment.new(user_id: 1, post_id: 1, content: "Hello there")
+    @comment = Comment.new(user_id: 1, post_id: 1, content: 'Hello there')
   end
 
   test 'user id must exist' do

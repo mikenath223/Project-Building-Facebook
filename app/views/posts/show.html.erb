@@ -25,7 +25,7 @@
 <% end %>
 <div>
   <h3> Comments </h3>
-  <% if has_comments?(@post) %>
+  <% if comments?(@post) %>
   <ol>
     <% @post.comments.each do |c| %>
     <li> <%= c.content %> <br>

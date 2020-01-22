@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UserAuthenticateTest < ActionDispatch::IntegrationTest
@@ -27,5 +29,4 @@ class UserAuthenticateTest < ActionDispatch::IntegrationTest
     get edit_post_path(1)
     assert_response :success
   end
-
 end
