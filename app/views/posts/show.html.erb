@@ -30,9 +30,11 @@
     <% @post.comments.each do |c| %>
     <li> <%= c.content %> <br>
       Commented by <%=  get_user(c) %>
+      
     </li>
     <% if attribute_exist?(@post, Comment) %>
-    <%= link_to "Delete comment", comment_path(c), method: :delete, data: { confirm: 'Confirm delete comment' } %>
+    <%= link_to "Delete comment", comment_path(c), method: :delete, data: { confirm: 'Confirm delete comment' } %> 
+    || <%= link_to "Update Comment", edit_comment_path(c) %>
     <% end %>
     <% end %>
   </ol>
@@ -41,6 +43,7 @@
 <div>
   <h2>Add comments</h2>
   <%= form_for @comment do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <%= f.label :content %>
   <%= f.text_area :content, class: 'form-control' %>
   <%= f.hidden_field :post_id, value: @post.id %>

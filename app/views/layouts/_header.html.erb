@@ -3,7 +3,7 @@
     <%= link_to "Home", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   root_path %></li>
+        <li><%= link_to "Find Friends", users_path %></li>
         <% if current_user %>
          <li class="user-btn "><%= link_to "#{current_user.nickname || current_user.email} Profile" , user_path(current_user) %></li>
          <li><%= link_to "New Post", new_post_path %></li>

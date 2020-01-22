@@ -10,4 +10,20 @@ module UsersHelper
   def posts_exist?(user)
     !user.posts.empty?
   end
+
+  def set_nickname(user)
+    @user.nickname || "Nickname not set"
+  end
+
+  def set_location(user)
+    @user.location || "We don't know where you are"
+  end
+
+  def set_gender(user)
+    @user.gender || "We dont know what you are"
+  end
+
+  def set_age(user)
+    @user.age || "We don't know how old you are"
+  end  
 end

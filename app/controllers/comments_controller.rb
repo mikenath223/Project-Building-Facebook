@@ -20,13 +20,12 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    if @comment.update(comment_params)
+    if @comment.update(update_params)
       flash[:success] = 'Comment updated successfully.'
-      redirect_to
     else
       flash[:danger] = 'Error in comment creation.'
-      redirect_to path
     end
+    redirect_to post_path(@comment.post)
   end
 
   def destroy
@@ -38,6 +37,10 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content, :post_id)
+  end
+
+  def update_params
+    params.require(:comment).permit(:content)
   end
 
   def find_comment
