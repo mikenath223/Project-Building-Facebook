@@ -14,7 +14,7 @@ module PostsHelper
         user == current_user
     end
 
-    def like_exist?(post)
-        Like.where(user_id: current_user.id, post_id: post.id).exists?
+    def attribute_exist?(post, attr)
+        attr.where(user_id: current_user.id, post_id: post.id).exists?
     end
 end
