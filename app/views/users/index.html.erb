@@ -7,10 +7,10 @@
     <% @users.each do |u| %>
    <li> <%= gravatar_for u, size: 50 %></li>
     <li><%= link_to 'View user', user_path(u) %></li>
-    <li>Nickname: <%= u.nickname %></li>
-    <li>Location: <%= u.location %></li>
-    <li>Gender: <%= u.gender %></li>
-   <li> Age: <%= u.age %></li>
+    <li>Nickname: <%= u.nickname || "Nickname not set" %></li>
+    <li>Location: <%= u.location || "We don't know where you are" %></li>
+    <li>Gender: <%= u.gender || "We dont know what you are" %></li>
+   <li> Age: <%= u.age || "We don't know how old you are" %></li>
    <hr>
     <% end %>
   </ul>

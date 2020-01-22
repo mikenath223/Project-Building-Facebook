@@ -9,6 +9,9 @@
 <li>Gender: <%= @user.gender || "We dont know what you are" %></li>
 <li>Age: <%= @user.age || "We don't know how old you are" %></li>
 </ul>
+<% if owner?(@user) %>
+  <%= link_to "Edit Profile", edit_user_registration_path(@user) %>
+<% end %>
 
 <h1> User Posts </h1>
 

@@ -7,7 +7,10 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("bootstrap/dist/js/bootstrap")
+// import 'bootstrap'
+// import './src/application.scss'
+
+
 // require("customjs/custom")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
