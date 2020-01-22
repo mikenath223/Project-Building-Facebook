@@ -9,12 +9,12 @@
 
 :root {
   --input-padding-x: 1.5rem;
-  --input-padding-y: .75rem;
+  --input-padding-y: 0.75rem;
 }
 
 body {
   background: #007bffcc;
-  background: linear-gradient(to right, #0062E6, rgba(51, 173, 255, 0.658));
+  background: linear-gradient(to right, #0062e6, rgba(51, 173, 255, 0.658));
   font-size: 20px;
 }
 
@@ -25,8 +25,52 @@ ul {
 }
 
 .container-box {
+  padding: 50px;
   margin: 70px;
   background-color: #fff;
+  h1,
+  h1 {
+    background-color: crimson;
+    text-align: center;
+  }
+  button {
+    margin: 5px;
+  }
+  a.badge:hover,
+  a.badge:focus {
+    color: blue;
+  }
+  .comment-btn {
+    margin-top: 15px;
+  }
+  .post-descript {
+    background-color: aliceblue;
+    padding: 15px;
+    border-radius: 15px;
+  }
+  .flash {
+    visibility: hidden;
+    animation: slideInOut 5s forwards 0.3s ease-in-out;
+  }
+}
+
+@keyframes slideInOut {
+  0% {
+    visibility: visible;
+    transform: translateX(-1000px);
+  }
+  36% {
+    visibility: visible;
+    transform: translateX(0px);
+  }
+  61% {
+    visibility: visible;
+    transform: translateX(50px);
+  }
+  100% {
+    visibility: hidden;
+    transform: translateX(120px);
+  }
 }
 
 .form-container {
@@ -37,7 +81,6 @@ ul {
   align-items: center;
   justify-content: center;
 }
-
 
 .card-signin {
   margin: auto;
@@ -67,7 +110,7 @@ ul {
 .form-signin .btn {
   font-size: 80%;
   border-radius: 5rem;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   font-weight: bold;
   padding: 1rem;
   transition: all 0.2s;
@@ -77,22 +120,21 @@ ul {
   margin-bottom: 25px;
 }
 
-
 .form-label-group input {
   height: auto;
   border-radius: 2rem;
 }
 
-.form-label-group>input {
+.form-label-group > input {
   padding: var(--input-padding-y) var(--input-padding-x);
 }
 
-.form-label-group>label {
-  line-height: 2.0;
+.form-label-group > label {
+  line-height: 2;
   color: #495057;
   border: 1px solid transparent;
-  border-radius: .25rem;
-  transition: all .1s ease-in-out;
+  border-radius: 0.25rem;
+  transition: all 0.1s ease-in-out;
 }
 
 .form-label-group input::-webkit-input-placeholder {
@@ -115,12 +157,10 @@ ul {
   color: transparent;
 }
 
-
-.form-label-group input:not(:placeholder-shown)~label {
+.form-label-group input:not(:placeholder-shown) ~ label {
   font-size: 12px;
   color: #777;
 }
-
 
 .btn-facebook {
   color: white;
@@ -196,14 +236,14 @@ nav .nav .user-btn {
   align-items: center;
   justify-content: center;
 
-  a{
+  a {
     border-radius: 5px;
     height: 46px;
     margin-top: -6px;
   }
 
   @include box_sizing;
-  &:hover{
+  &:hover {
     background-color: white;
     border-color: lightblue;
   }
@@ -213,13 +253,12 @@ nav .nav .user-btn {
   background-color: rgba(36, 174, 228, 0.822);
 }
 
-
 /* Fallback for Edge
 -------------------------------------------------- */
 
 @supports (-ms-ime-align: auto) {
-  .form-label-group>label {
-    display: none;
+  .form-label-group > label {
+    visibility: hidden;
   }
   .form-label-group input::-ms-input-placeholder {
     color: #777;
@@ -229,10 +268,9 @@ nav .nav .user-btn {
 /* Fallback for IE
 -------------------------------------------------- */
 
-@media all and (-ms-high-contrast: none),
-(-ms-high-contrast: active) {
-  .form-label-group>label {
-    display: none;
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .form-label-group > label {
+    visibility: hidden;
   }
   .form-label-group input:-ms-input-placeholder {
     color: #777;

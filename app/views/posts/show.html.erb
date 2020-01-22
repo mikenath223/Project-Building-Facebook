@@ -1,13 +1,16 @@
 <%= provide(:title, 'Post') %>
 
 <h1>Post</h1>
-<h3>Created by <%= get_user(@post) %> </h3>
-<ul>
-  <li> Title: <%= @post.title %></li>
-  <li><%= @post.content %></li>
-</ul>
-  <%= button_to 'Like', post_likes_path(@post), method: :post %>
-  <p><%= pluralize(@post.likes.count, "like") %></p>
+<div class="post-descript">
+  <h3>Author: <%= gravatar_for @post.user, size: 20 %><%= get_user(@post) %></h3>
+  <ul>
+    <li> Title: <%= @post.title %></li>
+    <li><%= @post.content %></li>
+  </ul>
+  <button type="button" class="btn btn-success">
+    <%= link_to "#{pluralize(@post.likes.count, 'like')} <i class='far fa-thumbs-up'></i>".html_safe, post_likes_path(@post), method: :post, class: "badge badge-light" %>
+  </button> <br>
+</div>
 
   <% if owner?(@post.user) %>
 
@@ -17,7 +20,7 @@
 
 
   <% end %>
-<div> 
+<div>
   <h3> Comments </h3>
   <% if has_comments?(@post) %>
     <ol>
@@ -35,6 +38,6 @@
     <%= f.label :content %>
     <%= f.text_area :content, class: 'form-control' %>
     <%= f.hidden_field :post_id, value: @post.id %>
-    <%= f.submit "Add Comment", class: "btn btn-success"%>
+    <%= f.submit "Add Comment", class: "btn btn-success comment-btn"%>
   <% end %>
 </div>
