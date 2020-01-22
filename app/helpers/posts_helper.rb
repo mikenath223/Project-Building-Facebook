@@ -7,7 +7,6 @@ module PostsHelper
     end
 
     def get_user(var)
-       # User.find(comment.user_id)
        var.user.nickname ? var.user.nickname : var.user.email
     end
 
@@ -15,4 +14,7 @@ module PostsHelper
         user == current_user
     end
 
+    def like_exist?(post)
+        Like.where(user_id: current_user.id, post_id: post.id).exists?
+    end
 end

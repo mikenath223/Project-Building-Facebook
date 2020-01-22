@@ -11,6 +11,15 @@ class LikesController < ApplicationController
     end
     redirect_to post_path(@post)
   end
+  
+  def destroy
+    @like = Like.find_by(user_id: current_user.id, post_id:
+      params[:post_id])
+    if already_liked?
+      @like.destroy
+    end
+    redirect_to post_path(@post)
+  end
 
   private
 
