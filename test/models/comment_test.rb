@@ -3,11 +3,7 @@ require 'test_helper'
 class CommentTest < ActiveSupport::TestCase
   def setup
     @post = posts(:post1)
-    @comment = @post.comments.build(content: "Hello there")
-  end
-
-  test 'should be valid' do
-    assert @comment.valid?
+    @comment = Comment.new(user_id: 1, post_id: 1, content: "Hello there")
   end
 
   test 'user id must exist' do

@@ -1,24 +1,9 @@
 require 'test_helper'
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
-    get comments_new_url
-    assert_response :success
-  end
-
-  test "should get create" do
-    get comments_create_url
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get comments_edit_url
-    assert_response :success
-  end
-
-  test "should get update" do
-    get comments_update_url
-    assert_response :success
+  test "should get redirected" do
+    get new_comment_url
+    assert_response :redirect
   end
 
 end
