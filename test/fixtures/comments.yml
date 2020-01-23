@@ -1,9 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   user: one
-#   post: one
-
-# two:
-#   user: two
-#   post: two
+comment1:
+  post: post1
+  user: mike
+  content: "Just added"

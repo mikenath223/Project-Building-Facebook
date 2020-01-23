@@ -26,6 +26,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'jquery-rails'
 gem 'omniauth-facebook'
+gem 'rails-controller-testing'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
