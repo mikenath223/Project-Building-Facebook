@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class LikesTest < ActionDispatch::IntegrationTest
@@ -18,7 +20,7 @@ class LikesTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to post_path(@post)
     follow_redirect!
-    assert_match "1 like", response.body
+    assert_match '1 like', response.body
     assert_difference 'Like.count', -1 do
       delete post_like_path(@post)
     end
