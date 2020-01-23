@@ -15,5 +15,8 @@ class LikesTest < ActionDispatch::IntegrationTest
     get post_path(@post)
     assert_template 'posts/show'
     assert_select 'button>a', text: "#{@post.likes.count} likes"
+    assert_difference 'Like.count', 1 do
+      post post_likes_path(@post), params: { post: { id: 1 } }
+    end
   end
 end
