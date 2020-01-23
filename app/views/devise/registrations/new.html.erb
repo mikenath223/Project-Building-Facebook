@@ -38,6 +38,33 @@
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="form-label-group">
+          <%= f.label :nickname %><br />
+          <%= f.text_field :nickname, autofocus: true, autocomplete: "nick" %>
+        </div>
+      
+        <div class="form-label-group">
+          <p>Select Gender</p>
+         <%= f.radio_button :gender, 'male' %>
+          <%= f.label :gender_male, "Male" %>
+          
+         <%=  f.radio_button :gender, 'female' %>
+         <%= f.label :gender_female, "Female" %>
+      
+         <%=  f.radio_button :gender, 'rather not say' %>
+         <%= f.label :gender_rathernotsay, "Rather not say" %>
+        </div>
+      
+        <div class="form-label-group">
+          <%= f.label :location %>
+          <%= f.text_field :location, autofocus: true %>
+        </div>
+      
+        <div class="form-label-group">
+          <%= f.label :age %>
+          <%= f.number_field :age, autofocus: true %>
+        </div>
+
+        <div class="form-label-group">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "inputPassword" %>
         </div>
