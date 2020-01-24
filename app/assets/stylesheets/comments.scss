@@ -1,3 +1,32 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.wrap-controls {
+  position: absolute;
+  right: 25px;
+  top: 10px;
+  p {
+    margin-top: 5px;
+    text-align: right;
+  }
+}
+
+.fa-ellipsis-h {
+  cursor: pointer;
+  color: rgb(29, 28, 28);
+  float: right;
+}
+
+.controls,
+.comment-form {
+  display: none;
+}
+
+.wrap-controls:hover > .controls,
+.wrap-controls:focus > .controls{
+  display: block;
+}
+
+.active {
+  display: block;
+}

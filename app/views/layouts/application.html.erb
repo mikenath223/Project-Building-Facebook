@@ -16,9 +16,12 @@
 
   <div class="container-box">
   <%= render 'layouts/header' %>
-    <% flash.each do |message_type, message| %>
-    <div class="flash alert alert-<%= message_type %>"><%= message %> </div>
-    <% end %>
+  <% flash.each do |key, value| %>
+  <%= content_tag(:div, class: "flash alert alert-#{key} alert-dismissable") do %>
+   <%= value %>
+   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>   
+  <% end %> 
+ <% end %>
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>
   </div>
