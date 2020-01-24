@@ -1,0 +1,50 @@
+<h1>Post</h1>
+<div class="post-descript">
+  <h3>Author: <%= gravatar_for post.user, size: 20 %> <%= get_user(post) %></h3>
+  <p>Joined FaceBrook: <%= time_ago_in_words(post.user.created_at) %> ago </p>
+  <ul>
+    <li> Title: <%= post.title %></li>
+    <li><%= post.content %></li>
+    <li>Published <%= time_ago_in_words(post.created_at) %> ago.</li>
+  </ul>
+  <button type="button" class="btn btn-primary">
+    <%= link_to "#{pluralize(post.likes.count, 'like')} <i class='far fa-thumbs-up'></i>".html_safe, likes_path( likeable_data(post)), method: :post, class: "badge badge-light" %>
+    <% if liked?(post) %>
+    <%= link_to "Unlike <i class='far fa-thumbs-down'></i>".html_safe, like_path( like_id(post) ), method: :delete, class: "badge badge-light" %>
+    <% end %>
+  </button> <br>
+</div>
+
+<% if owner?(post.user) %>
+
+<%= link_to 'Delete',  post_path(post), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
+||
+<%= link_to 'Edit', edit_post_path(post) %>
+
+
+<% end %>
+<div>
+  <h3> Comments </h3>
+  <% if comments?(post) %>
+  <ol>
+    <% post.comments.each do |c| %>
+    <li> <%= c.content %> <br>
+      Commented by <%=  get_user(c) %>
+      
+    </li>
+    <%= link_to "Delete comment", comment_path(c), method: :delete, data: { confirm: 'Confirm delete comment' } %> 
+    || <%= link_to "Update Comment", edit_comment_path(c) %>
+    <% end %>
+  </ol>
+  <% end %>
+</div>
+<div>
+  <h2>Add comments</h2>
+  <%= form_for @comment do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.label :content %>
+  <%= f.text_area :content, class: 'form-control' %>
+  <%= f.hidden_field :post_id, value: post.id %>
+  <%= f.submit "Add Comment", class: "btn btn-success comment-btn"%>
+  <% end %>
+</div>
