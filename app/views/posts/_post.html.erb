@@ -33,8 +33,11 @@
   <% if comments?(post) %>
   <ul>
     <% post.comments.each do |c| %>
-    <li class="comment-descript"> <%= c.content %> <br>
-      Commented by <%=  get_user(c) %> <br>
+    <li class="comment-descript">
+      <span class="gravatar-comment"><%= gravatar_for c.user, size: 30 %></span>
+     <b><%=  get_user(c).capitalize %></b><br>
+      <%= c.content %> 
+      <br>
       <button type="button" class="btn btn-primary">
         <%= link_to "#{pluralize(c.likes.count, 'like')} <i class='far fa-thumbs-up'></i>".html_safe, likes_path( likeable_data(c)), method: :post, class: "badge badge-light" %>
         <% if liked?(c) %>
