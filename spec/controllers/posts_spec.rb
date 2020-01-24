@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
@@ -6,7 +8,6 @@ RSpec.describe PostsController, type: :controller do
   before { @post = user.posts.create(FactoryBot.attributes_for(:post)) }
 
   describe '#index' do
-    
     context 'not logged in' do
       it 'doesnt respond successfully' do
         get :index
@@ -31,7 +32,6 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe '#new' do
-
     context 'Not logged in' do
       before { get :new, params: { user_id: user.id } }
       it 'doesnt respond successfully' do

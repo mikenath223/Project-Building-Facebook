@@ -1,6 +1,8 @@
-require "rails_helper"
-require "models/concerns/likeable_spec"
+# frozen_string_literal: true
 
-RSpec.describe Comment, :type => :model do
-  it_behaves_like "likeable"
+require 'rails_helper'
+require 'models/concerns/likeable_spec'
+
+RSpec.describe Comment, type: :model do
+  it_behaves_like 'likeable'
 end
