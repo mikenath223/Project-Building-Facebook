@@ -22,10 +22,12 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-gem 'bootstrap-sass', '3.3.6'
+gem 'bootstrap-sass', '3.4.1'
 gem 'devise'
-gem 'jquery-rails'
+gem 'jquery-rails', '4.3.5'
 gem 'omniauth-facebook'
+gem 'uglifier', '3.2.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

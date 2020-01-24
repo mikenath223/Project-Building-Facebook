@@ -64,9 +64,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
-    bootstrap-sass (3.3.6)
+    bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
+      sassc (>= 2.0.0)
     builder (3.2.4)
     byebug (11.0.1)
     capybara (3.30.0)
@@ -247,11 +247,6 @@ GEM
     rspec-support (3.9.2)
     ruby_dep (1.5.0)
     rubyzip (2.0.0)
-    sass (3.7.4)
-      sass-listen (~> 4.0.0)
-    sass-listen (4.0.0)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.2.1)
@@ -289,6 +284,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
+    uglifier (3.2.0)
+      execjs (>= 0.3.0, < 3)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.1)
@@ -316,7 +313,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
-  bootstrap-sass (= 3.3.6)
+  bootstrap-sass (= 3.4.1)
   byebug
   capybara
   devise
@@ -325,7 +322,7 @@ DEPENDENCIES
   guard (= 2.13.0)
   guard-rspec
   jbuilder (~> 2.7)
-  jquery-rails
+  jquery-rails (= 4.3.5)
   launchy
   listen (>= 3.0.5, < 3.2)
   omniauth-facebook
@@ -343,6 +340,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
+  uglifier (= 3.2.0)
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)

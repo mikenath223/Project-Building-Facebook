@@ -15,7 +15,6 @@
 body {
   background: #007bffcc;
   background: linear-gradient(to right, #0062e6, rgba(51, 173, 255, 0.658));
-  font-size: 20px;
 }
 
 ul {
@@ -24,9 +23,13 @@ ul {
   }
 }
 
+.nav {
+  display: flex;
+  float: left;
+}
+
 .container-box {
   position: relative;
-  padding: 50px;
   margin: 70px;
   background-color: #fff;
   a {

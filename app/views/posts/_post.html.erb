@@ -1,5 +1,5 @@
 <h1>Post</h1>
-<div class="post-descript">
+<div class="post-descript container-fluid col-12">
   <h3>Author: <%= gravatar_for post.user, size: 20 %> <%= get_user(post) %></h3>
   <p>Joined FaceBrook: <%= time_ago_in_words(post.user.created_at) %> ago </p>
   <ul>

@@ -1,18 +1,28 @@
-<header class="navbar navbar-fixed-top navbar-custom">
-  <div class="container">
-    <%= link_to "Home", root_path, id: "logo" %>
-    <nav>
+
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container col-12">
+  <%= link_to "Home", root_path, id: "logo"%>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Find Friends", users_path %></li>
+        <li><%= link_to "Home", root_path %></li>
         <% if current_user %>
-         <li class="user-btn "><%= link_to "#{current_user.nickname || current_user.email} Profile" , user_path(current_user) %></li>
-         <li><%= link_to "New Post", new_post_path %></li>
-         <li><%= link_to "Logout", destroy_user_session_path %></li>
-        <% else %>
-        <li><%= link_to "Sign up", new_user_registration_path %></li>
-        <li><%= link_to "Sign in", new_user_session_path %></li>
-        <% end %>
+      <li><%= link_to "Find Friends", users_path %></li>
+      <li><%= link_to "New Post", new_post_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Account <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "#{current_user.nickname || current_user.email} Profile" , user_path(current_user) %></li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to "Logout", destroy_user_session_path %>
+            </li>
+          </ul>
+        </li>
+      <% else %>
+      <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <li><%= link_to "Sign in", new_user_session_path %></li>
+      <% end %>
       </ul>
-    </nav>
   </div>
 </header>
