@@ -11,9 +11,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) do |u|
       u.permit(:nickname, :location, :gender, :age, :current_password)
     end
-
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :gender, :location, :age])
-    end
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[nickname gender location age])
   end
 end
