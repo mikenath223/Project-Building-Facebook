@@ -1,7 +1,14 @@
 FactoryBot.define do
   factory :like do
-    user { nil }
-    likeable_id { 1 }
-    likeable_type { "MyString" }
+    association :user
+    likeable { FactoryBot.build(%i[post comment].sample) }
+
+    trait :for_post do
+      likeable { FactoryBot.build(:post) }
+    end
+
+    trait :for_comment do
+      likeable { FactoryBot.build(:comment) }
+    end
   end
 end
