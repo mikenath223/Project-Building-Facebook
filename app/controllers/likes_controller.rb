@@ -6,10 +6,12 @@ class LikesController < ApplicationController
   def index; end
 
   def create
-    return flash.now[:info] = "You can't like more than once" if already_liked?
-
+    if already_liked?
+      flash[:info] = "You can't like more than once"
+    else
+      @likeable.likes.create(user: current_user)
+    end
     redirect_back(fallback_location: root_path)
-    @likeable.likes.create(user: current_user)
   end
 
   def destroy

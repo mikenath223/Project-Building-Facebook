@@ -25,9 +25,13 @@ ul {
 }
 
 .container-box {
+  position: relative;
   padding: 50px;
   margin: 70px;
   background-color: #fff;
+  a {
+    text-decoration: none;
+  }
   h1,
   h1 {
     background-color: crimson;
@@ -43,13 +47,15 @@ ul {
   .comment-btn {
     margin-top: 15px;
   }
-  .post-descript {
+  .post-descript,
+  .comment-descript {
     background-color: aliceblue;
     padding: 15px;
     border-radius: 15px;
   }
   .flash {
     visibility: hidden;
+    position: absolute;
     animation: slideInOut 5s forwards 0.3s ease-in-out;
   }
 }

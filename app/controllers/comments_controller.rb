@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     if @comment.update(update_params)
       flash[:success] = 'Comment updated successfully.'
     else
-      flash[:danger] = 'Error in comment creation.'
+      flash[:danger] = 'Error in comment updating.'
     end
     redirect_to post_path(@comment.post)
   end
