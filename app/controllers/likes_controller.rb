@@ -1,32 +1,36 @@
 # frozen_string_literal: true
 
 class LikesController < ApplicationController
-  before_action :find_post
+  before_action :set_likeable, only: %i[index create]
+
+  def index; end
 
   def create
-    if already_liked?
-      flash[:info] = "You can't like more than once"
-    else
-      @post.likes.create(user_id: current_user.id)
-    end
-    redirect_to post_path(@post)
+    return flash.now[:info] = "You can't like more than once" if already_liked?
+
+    redirect_back(fallback_location: root_path)
+    @likeable.likes.create(user: current_user)
   end
 
   def destroy
-    @like = Like.find_by(user_id: current_user.id, post_id:
-      params[:post_id])
-    @like.destroy if already_liked?
-    redirect_to post_path(@post)
+    @like = Like.find(params[:id])
+    return unless @like.user == current_user
+
+    @like.destroy
+    redirect_back(fallback_location: root_path)
   end
 
   private
 
-  def find_post
-    @post = Post.find(params[:post_id])
+  def already_liked?
+    !current_user.likes.find_by(likeable_id: like_params[:likeable_id], likeable_type: like_params[:likeable_type]).nil?
   end
 
-  def already_liked?
-    Like.where(user_id: current_user.id, post_id:
-    params[:post_id]).exists?
+  def set_likeable
+    @likeable = like_params[:likeable_type].constantize.find(like_params[:likeable_id])
+  end
+
+  def like_params
+    params.require(:like).permit(:likeable_id, :likeable_type)
   end
 end

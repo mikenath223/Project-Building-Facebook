@@ -4,14 +4,11 @@ Rails.application.routes.draw do
   # get 'comments/edit'
   # post 'comments/update'
 
-  resources :comments
   devise_for :users
-
-  resources :posts do
-    resources :likes
-  end
-
-  delete '/posts/:post_id/likes/:id' => 'likes#destroy'
+  
+  resources :posts
+  resources :comments
+  resources :likes, only: %i[index create destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'posts#index'
   
