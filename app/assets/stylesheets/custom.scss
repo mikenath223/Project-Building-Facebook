@@ -25,19 +25,69 @@ ul {
 
 .nav {
   display: flex;
-  float: left;
+  justify-content: space-evenly;
+  margin: 0;
+}
+
+.nav ul.show a {
+  font-size: 18px;
+}
+
+.update-form {
+  border: 1px solid gray;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  width: 350px;
+  margin : 40px auto;
+  padding-bottom: 10px;
+  .field {
+    margin: 20px auto;
+    width: 70%;
+    p {
+      margin: 0;
+    }
+  }
+  p {
+    margin: 0 50px;
+  }
+  .actions {
+    text-align: center;
+    input {
+      background-color: green;
+      border: none;
+      color: #fff;
+      width: 255px;
+      border-radius: 5px;
+    }
+  }
+  h4,
+  p,
+  a {
+    margin-left: 40px;
+  }
+  .delete {
+    background-color: crimson;
+    color: #fff;
+    padding: 5px;
+    margin-left: 40px;
+    border: none;
+  }
 }
 
 .container-box {
   position: relative;
-  margin: 70px;
+  margin: 50px 5px 0 5px;
+  padding: 20px;
   background-color: #fff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   a {
     text-decoration: none;
   }
   h1,
-  h1 {
-    background-color: crimson;
+  h2 {
+    background-color: rgba(192, 192, 192, 0.322);
+    padding: 4px;
     text-align: center;
   }
   button {
@@ -59,7 +109,8 @@ ul {
   .flash {
     visibility: hidden;
     position: absolute;
-    animation: slideInOut 5s forwards 0.3s ease-in-out;
+    width: 70%;
+    animation: slideInOut 8s forwards 0.3s ease-in-out;
   }
 }
 
@@ -81,7 +132,6 @@ ul {
     transform: translateX(120px);
   }
 }
-
 
 .card-signin {
   margin: auto;
@@ -189,15 +239,29 @@ ul {
   }
 }
 
+header {
+  background-color: rgba(41, 41, 233, 0.623);
+  .nav a {
+    color: #29f3e9;
+    font-size: 20px;
+  }
+  li {
+    display: block;
+    margin: 0 15px;
+    font-weight: 900;
+  }
+}
+
 #logo {
   float: left;
-  margin-right: 10px;
+  margin-left: 50px;
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 7px;
   font-weight: bold;
+  font-style: italic;
   &:hover {
     color: white;
     text-decoration: none;
@@ -227,33 +291,6 @@ ul {
   @include box_sizing;
 }
 
-nav .nav .user-btn {
-  margin: 4px;
-  height: 46px;
-  background-color: lightblue;
-  border-radius: 5px;
-  border: 2px solid white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  a {
-    border-radius: 5px;
-    height: 46px;
-    margin-top: -6px;
-  }
-
-  @include box_sizing;
-  &:hover {
-    background-color: white;
-    border-color: lightblue;
-  }
-}
-
-.navbar-custom {
-  background-color: rgba(36, 174, 228, 0.822);
-}
-
 /* Fallback for Edge
 -------------------------------------------------- */
 
@@ -278,8 +315,33 @@ nav .nav .user-btn {
   }
 }
 
-// @media only screen and (max-width: 800px) {
-//   body {
-//     font-size: 40px;
-//   }
-// }
+@media only screen and (max-width: 800px) {
+  .nav .head-links {
+    display: none;
+  }
+  .nav {
+    clear: left;
+    width: 110%;
+    margin: auto;
+    width: 100%;
+  }
+  .container-box {
+    margin-top: 120px;
+  }
+
+  .nav ul.show {
+    left: initial;
+    right: 0;
+    li {
+      margin: 0;
+      a {
+        text-align: right;
+        padding: 4px;
+      }
+    }
+  }
+
+  .update-form {
+    width: 300px;
+  }
+}

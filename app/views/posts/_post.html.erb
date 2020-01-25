@@ -16,7 +16,7 @@
 
   <% if owner?(post.user) %>
   <div class="wrap-controls">
-    <i class="fas fa-ellipsis-h"></i> <br>
+    <%= fa_icon "ellipsis-h" %> <br>
     <span class="controls">
       <p><%= link_to 'Edit', edit_post_path(post) %></p>
       <p>
@@ -46,7 +46,7 @@
       </button>
     <% if owner?(c.user) %>
     <div class="wrap-controls">
-      <i class="fas fa-ellipsis-h"></i> <br>
+      <%= fa_icon "ellipsis-h" %>  <br>
       <span class="controls">
         <p><%= link_to "Update Comment", edit_comment_path(c) %></p>
         <p>
@@ -61,8 +61,8 @@
   <% end %>
 </div>
 <div>
-  <button type="button" class="comment-btn btn btn-primary">Add comment <i class="far fa-comment"></i></button>
-  <div class="comment-form">
+  <button type="button" class="comment-btn btn btn-primary">Add comment <%= fa_icon "comment" %> </button>
+  <div class="comment-form animated fadeInDown">
     <%= form_for @comment do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <%= f.label :content %>

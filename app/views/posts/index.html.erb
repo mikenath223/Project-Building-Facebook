@@ -1,8 +1,8 @@
 <%= provide(:title, 'All posts') %>
 
-<h2>Post Feed</h2>
-
-<div class="container">
+<h2 class="text-center m-5">Post Feed</h2>
+<hr>
+<div class="container m-5">
   <ul>
     <% @posts.each do |p| %>
     <li> <%= gravatar_for p.user, size: 50 %></li>

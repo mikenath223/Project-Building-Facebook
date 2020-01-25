@@ -22,6 +22,13 @@
   display: none;
 }
 
+.controls {
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid silver;
+}
+
 .wrap-controls:hover > .controls,
 .wrap-controls:focus > .controls{
   display: block;

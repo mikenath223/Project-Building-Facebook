@@ -1,7 +1,7 @@
 <%= provide(:title, 'Edit Post') %>
 
 <h2>Update Profile <%= resource_name.to_s.humanize %></h2>
-
+<section class="update-form animated bounce">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -14,27 +14,27 @@
     <p>Select Gender</p>
    <%= f.radio_button :gender, 'male' %>
     <%= f.label :gender_male, "Male" %>
-    
+    <br>
    <%=  f.radio_button :gender, 'female' %>
    <%= f.label :gender_female, "Female" %>
-
+   <br>
    <%=  f.radio_button :gender, 'rather not say' %>
    <%= f.label :gender_rathernotsay, "Rather not say" %>
   </div>
 
   <div class="field">
-    <%= f.label :location %>
+    <%= f.label :location %> <br>
     <%= f.text_field :location, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :age %>
+    <%= f.label :age %> <br>
     <%= f.number_field :age, autofocus: true %>
   </div>
-
+  <hr>
   <p>To save changes kindly enter your current password.</p>
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div> 
   <!-- <div class="field">
@@ -64,12 +64,13 @@
 -->
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update"%>
   </div>
 <% end %>
+<hr>
+<h4>Unhappy? <%= fa_icon "frown" %></h4> 
 
-<h4>Unhappy?</h4>
-
-<p>Cancel your account <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Cancel your account <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "delete" %></p>
 
 <%= link_to "Back", :back %>
+</section>
