@@ -1,4 +1,6 @@
 class FriendshipsController < ApplicationController
+  before_action :create_notification, only: :create
+
   def create
     if !already_sent?
       current_user.friendships.create(friend_id: @friend_id)
@@ -10,6 +12,11 @@ class FriendshipsController < ApplicationController
   end
 
   private
+
+  def create_notification
+    @notifications = current_user.pending_friends + current_user.friend_requests
+    @notifications.compact
+  end
 
   def already_sent?
     @friend_id = friendship_params[:friend_id]
