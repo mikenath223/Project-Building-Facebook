@@ -1,15 +1,16 @@
 <%= provide(:title, 'All users') %>
 <h2>FaceBrook Registered Users</h2>
-<div class="container">
-  <ul>
-    <% @users.each do |u| %>
-      <li> <%= gravatar_for u, size: 50 %></li>
-      <li><%= link_to 'View user', user_path(u) %></li>
-      <li>Nickname: <%= u.nickname || "Nickname not set" %></li>
-      <li>Location: <%= u.location || "We don't know where you are" %></li>
-      <li>Gender: <%= u.gender || "We dont know what you are" %></li>
-      <li> Age: <%= u.age || "We don't know how old you are" %></li>
-      <hr>
-    <% end %>
+<div class="container-users">
+  <% @users.each do |u| %>
+  <ul class="users-wrap animated fadeIn rollIn">
+    <li> <%= gravatar_for u, size: 50 %></li>
+    <li><%= link_to 'View user', user_path(u) %></li>
+    <li>Nickname: <%= nickname(u) %></li>
+    <li>Location: <%= location(u) %></li>
+    <li>Gender: <%= gender(u) %></li>
+    <li> Age: <%= age(u) %></li>
+    <hr>
+    <%= button_to "Send Friend Request", friendships_path(friendship_data(u)), method: :post, class: "btn btn-success" %>
   </ul>
+  <% end %>
 </div>

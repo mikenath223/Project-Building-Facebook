@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   end
 
   get '/user/:id', to: 'users#show', as: 'user'
+  resources :friendships, only: %i[create destroy]
   # get '/profile/:id/update', to: 'users#edit', as
 end

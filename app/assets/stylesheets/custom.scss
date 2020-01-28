@@ -33,6 +33,18 @@ ul {
   font-size: 18px;
 }
 
+.users-wrap {
+  padding: 10px;
+  box-shadow: 5px 5px 20px 1px gray;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.container-users {
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(auto-fit, minmax(250px, 350px));
+}
+
 .update-form {
   border: 1px solid gray;
   border-bottom-left-radius: inherit;
@@ -109,7 +121,7 @@ ul {
   .flash {
     visibility: hidden;
     position: absolute;
-    width: 70%;
+    padding: 0 5px;
     animation: slideInOut 8s forwards 0.3s ease-in-out;
   }
 }
