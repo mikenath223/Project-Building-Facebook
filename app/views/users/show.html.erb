@@ -1,28 +1,24 @@
 <%= provide(:title, 'Post') %>
-
 <h1><%= @user.nickname || @user.email %> profile</h1>
-
 <ul>
-<li> <%= gravatar_for @user, size: 50 %></li>
-<li>Nickname: <%= nickname(@user) %></li>
-<li>Location: <%= location(@user) %></li>
-<li>Gender: <%= gender(@user) %></li>
-<li>Age: <%= age(@user) %></li>
+  <li> <%= gravatar_for @user, size: 50 %></li>
+  <li>Nickname: <%= nickname(@user) %></li>
+  <li>Location: <%= location(@user) %></li>
+  <li>Gender: <%= gender(@user) %></li>
+  <li>Age: <%= age(@user) %></li>
 </ul>
 <% if owner?(@user) %>
   <%= link_to "Edit Profile", edit_user_registration_path(@user) %>
 <% end %>
-
 <h1> User Posts </h1>
-
 <%if posts_exist?(@user) %>
-<% @user.posts.each do |p|%>
-<ul>
-<li> <%= p.title %> </li>
-<li> <%= p.content %> </li>
-<li> <%= p.created_at.to_date%> </li>
-</ul>
-<% end %>
+  <% @user.posts.each do |p|%>
+    <ul>
+      <li> <%= p.title %> </li>
+      <li> <%= p.content %> </li>
+      <li> <%= p.created_at.to_date%> </li>
+    </ul>
+  <% end %>
 <%else%>
-<p> No posts created by user</p>
+  <p> No posts created by user</p>
 <% end %>
