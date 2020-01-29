@@ -1,15 +1,15 @@
-<%= provide(:title, 'All posts') %>
+<%= provide(:title, 'Posts Feed') %>
 
 <h2 class="text-center m-5">Post Feed</h2>
 <hr>
 <div class="container m-5">
-  <ul>
-    <% @posts.each do |p| %>
+  <% @posts.each do |p| %>
+    <ul>
     <li> <%= gravatar_for p.user, size: 50 %></li>
-    <li><%= link_to 'View Post', post_path(p) %></li>
+    <li><%= link_to 'View Post', post_path(p.id) %></li>
     <li>Title: <%= p.title %></li>
     <li>Content: <%= p.content %></li>
+  </ul>
     <hr>
     <% end %>
-  </ul>
 </div>

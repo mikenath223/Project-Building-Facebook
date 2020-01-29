@@ -8,7 +8,7 @@
   <li>Age: <%= age(@user) %></li>
 </ul>
 <% if owner?(@user) %>
-  <%= link_to "Edit Profile", edit_user_registration_path(@user) %>
+  <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-primary" %>
 <% end %>
 <h1> User Posts </h1>
 <%if posts_exist?(@user) %>
