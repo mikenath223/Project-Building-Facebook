@@ -21,29 +21,30 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :inverse_friendships, class_name: :Friendship, foreign_key: :friend_id
 
+  def friend?(user)
+    friends.include?(user)
+  end
+
   def friends
-    friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
-    friends_array += inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
+    friends_array = friendships.map { |friends| friends.friend if friends.confirmed }
+    friends_array += inverse_friendships.map { |friends| friends.user if friends.confirmed }
     friends_array.compact
   end
 
   # Users who have yet to confirme friend requests
   def pending_friends
-    friendships.map { |friendship| friendship.friend unless friendship.confirmed }.compact
+   pending_friends = friendships.map { |friends| friends.friend unless friends.confirmed }.compact
+   pending_friends
   end
 
   # Users who have requested to be friends
   def friend_requests
-    inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
+    requested_friendship = inverse_friendships.map { |friend_relation| friend_relation.user unless friend_relation.confirmed }.compact
   end
 
   def confirm_friend(user)
-    friendship = inverse_friendships.find { |friend_relation| friend_relation.user == user }
-    friendship.confirmed = true
-    friendship.save
-  end
-
-  def friend?(user)
-    friends.include?(user)
+    relationship = inverse_friendships.find { |friend_relation| friend_relation.user == user }
+    relationship.update(confirmed: true)
+    relationship.save
   end
 end
