@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FriendshipsHelper
   def friendship_data(user)
     { friendship: { user_id: current_user.id, friend_id: user.id } }

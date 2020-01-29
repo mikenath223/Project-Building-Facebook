@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 class FriendshipsController < ApplicationController
   # before_action :create_notification, only: :create
 
   def create
     if !already_sent?
       current_user.friendships.create(friend_id: @friend_id)
-      flash[:success] = "Friend request sent"
+      flash[:success] = 'Friend request sent'
     else
-      flash[:danger] = "Seems a relationship already exists on both your ends."
+      flash[:danger] = 'Seems a relationship already exists on both your ends.'
     end
     redirect_back(fallback_location: users_path)
   end
@@ -17,13 +19,13 @@ class FriendshipsController < ApplicationController
 
   def accept_request
     friend = User.find(request_params[:friend])
-   if current_user.confirm_friend(friend)
-    redirect_to root_path
-    flash[:success] = "Great! You are now friends with #{(friend.nickname || friend.email).capitalize}."
-   else
-    flash.now[:warning] = "There was and error completing your request."
-    render 'create_notification'
-   end
+    if current_user.confirm_friend(friend)
+      redirect_to root_path
+      flash[:success] = "Great! You are now friends with #{(friend.nickname || friend.email).capitalize}."
+    else
+      flash.now[:warning] = 'There was and error completing your request.'
+      render 'create_notification'
+    end
   end
 
   def friends

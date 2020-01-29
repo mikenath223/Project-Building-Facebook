@@ -31,8 +31,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts_cur =  current_user.posts 
-    @posts_friends =  current_user.friends.map { |f| f.posts }
+    @posts_cur = current_user.posts
+    @posts_friends = current_user.friends.map(&:posts)
   end
 
   def show

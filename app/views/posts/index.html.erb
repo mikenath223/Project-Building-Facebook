@@ -4,22 +4,24 @@
 <hr>
 <div class="container m-5">
   <% @posts_cur.each do |p| %>
-    <ul>
-     <li> <%= gravatar_for p.user, size: 50 %></li>
-     <li><%= link_to 'View Post', post_path(p.id) %></li>
-     <li>Title: <%= p.title %></li>
-     <li>Content: <%= p.content %></li>
-   </ul>
-    <hr>
+  <ul>
+    <li> <%= gravatar_for p.user, size: 50 %></li>
+    <li><%= link_to 'View Post', post_path(p.id) %></li>
+    <li>Title: <%= p.title %></li>
+    <li>Content: <%= p.content %></li>
+  </ul>
+  <hr>
   <% end %>
 
+  <% if @posts_friends[0] %>
   <% @posts_friends[0].each do |p| %>
-    <ul>
-     <li> <%= gravatar_for p.user, size: 50 %></li>
-     <li><%= link_to 'View Post', post_path(p.id) %></li>
-     <li>Title: <%= p.title %></li>
-     <li>Content: <%= p.content %></li>
-   </ul>
-    <hr>
+  <ul>
+    <li> <%= gravatar_for p.user, size: 50 %></li>
+    <li><%= link_to 'View Post', post_path(p.id) %></li>
+    <li>Title: <%= p.title %></li>
+    <li>Content: <%= p.content %></li>
+  </ul>
+  <hr>
+  <% end %>
   <% end %>
 </div>
