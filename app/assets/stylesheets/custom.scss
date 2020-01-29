@@ -121,9 +121,17 @@ ul {
   .flash {
     visibility: hidden;
     position: absolute;
-    padding: 0 5px;
+    padding: 0 15px;
     animation: slideInOut 8s forwards 0.3s ease-in-out;
   }
+}
+
+.friends {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 30px 1px gray;
 }
 
 @keyframes slideInOut {
@@ -255,7 +263,7 @@ header {
   background-color: rgba(41, 41, 233, 0.623);
   .nav a {
     color: #29f3e9;
-    font-size: 20px;
+    font-size: 18px;
   }
   li {
     display: block;

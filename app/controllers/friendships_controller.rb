@@ -1,5 +1,5 @@
 class FriendshipsController < ApplicationController
-  before_action :create_notification, only: :create
+  # before_action :create_notification, only: :create
 
   def create
     if !already_sent?
@@ -12,13 +12,22 @@ class FriendshipsController < ApplicationController
   end
 
   def create_notification
-    @notifications = current_user.pending_friends
-    @notifications.compact
-    render 'friendships/create_notifications'
+    @notifications = current_user.friend_requests
   end
 
   def accept_request
-    current_user.confirm_friend()
+    friend = User.find(request_params[:friend])
+   if current_user.confirm_friend(friend)
+    redirect_to root_path
+    flash[:success] = "Great! You are now friends with #{(friend.nickname || friend.email).capitalize}."
+   else
+    flash.now[:warning] = "There was and error completing your request."
+    render 'create_notification'
+   end
+  end
+
+  def friends
+    @friends = current_user.friends
   end
 
   private
@@ -27,6 +36,10 @@ class FriendshipsController < ApplicationController
     @friend_id = friendship_params[:friend_id]
     @friend = User.find(@friend_id)
     @friend.friend_requests.include?(current_user) || @friend.friend?(current_user)
+  end
+
+  def request_params
+    params.require(:request).permit(:friend)
   end
 
   def friendship_params

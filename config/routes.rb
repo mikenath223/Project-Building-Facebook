@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get '/user/:id', to: 'users#show', as: 'user'
   resources :friendships, only: %i[create destroy]
-  get 'notifications', to: 'friendships#create_notification'
+  get 'notifications', to: 'friendships#create_notification', as: 'notifications'
+  post 'acceptrequest', to: 'friendships#accept_request', as: 'accept'
+  get 'friends', to: 'friendships#friends', as: 'friends'
   # get '/profile/:id/update', to: 'users#edit', as
 end

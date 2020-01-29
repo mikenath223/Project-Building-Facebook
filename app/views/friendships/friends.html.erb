@@ -1,0 +1,14 @@
+<% provide(title: "Friends") %>
+
+<section class="container-friends p-5 m-5">
+  <h1>Friends</h1>
+  <% if @friends %>
+    <% @friends.each do |fri| %>
+      <div class="animated slideInUp friends">
+        <%= gravatar_for fri, size: 30 %>
+        <%= (fri.nickname || fri.email).capitalize %>
+        <%= link_to "View User", user_path(fri), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  <% end %>
+</section>
