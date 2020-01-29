@@ -1,0 +1,16 @@
+<%= provide(title: "Notifications") %>
+
+<h1>Notifications</h1>
+
+<div class="container">
+  <% if @notifications %>
+  <% @notifications.each do |notif| %>
+  <ul class="animated slideInRight">
+    <li>You have a friend request from <span class="text-secondary"><%= (notif.nickname || notif.email).capitalize %></span></li>
+    <li><%= link_to "View Sender", user_path(notif), class: "btn btn-primary" %></li>
+  </ul>
+  <% end %>
+  <% else %>
+  <h3>No notifications</h3>
+  <% end %>
+</div>

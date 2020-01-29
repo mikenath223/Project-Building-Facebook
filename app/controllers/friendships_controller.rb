@@ -11,12 +11,17 @@ class FriendshipsController < ApplicationController
     redirect_back(fallback_location: users_path)
   end
 
-  private
-
   def create_notification
-    @notifications = current_user.pending_friends + current_user.friend_requests
+    @notifications = current_user.pending_friends
     @notifications.compact
+    render 'friendships/create_notifications'
   end
+
+  def accept_request
+    current_user.confirm_friend()
+  end
+
+  private
 
   def already_sent?
     @friend_id = friendship_params[:friend_id]
