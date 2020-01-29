@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 module LikesHelper
-  def likeable_data(likeable)
-    { like: { likeable_id: likeable.id, likeable_type: likeable.class.name } }
+  def likeables_data(likeables)
+    { like: { likeables_id: likeables.id, likeables_type: likeables.class.name } }
   end
 
-  def liked?(likeable)
-    !likeable.likes.find_by(user_id: current_user.id).nil?
+  def liked?(likeables)
+    !likeables.likes.find_by(user_id: current_user.id).nil?
   end
 
-  def like_id(likeable)
-    likeable.likes.find_by(user_id: current_user.id).id
+  def like_id(likeables)
+    likeables.likes.find_by(user_id: current_user.id).id
   end
 end
