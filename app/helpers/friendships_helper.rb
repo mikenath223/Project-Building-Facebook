@@ -8,4 +8,12 @@ module FriendshipsHelper
   def request_data(user)
     { request: { friend: user.id } }
   end
+
+  def relationship?(other_user)
+    current_user.friend_requests.include?(other_user) || other_user.friend?(current_user)
+  end
+
+  def friends?(other_user)
+    other_user.friend?(current_user)
+  end
 end

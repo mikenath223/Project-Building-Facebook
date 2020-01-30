@@ -10,7 +10,13 @@
     <li>Gender: <%= gender(u) %></li>
     <li> Age: <%= age(u) %></li>
     <hr>
+    <% if !relationship?(u) %>
     <%= button_to "Send Friend Request", friendships_path(friendship_data(u)), method: :post, class: "btn btn-success" %>
+    <% elsif friends?(u) %>
+    <p class="bg-primary text-center">Friends <i class='fas fa-user-friends'></i></p>
+    <% else %>
+    <p class="bg-warning text-center"><i class="far fa-question-circle"></i> Awaiting Response</p>
+    <% end %>
   </ul>
   <% end %>
-</div>
+</div> 

@@ -37,7 +37,7 @@ class FriendshipsController < ApplicationController
   def already_sent?
     @friend_id = friendship_params[:friend_id]
     @friend = User.find(@friend_id)
-    @friend.friend_requests.include?(current_user) || @friend.friend?(current_user)
+    current_user.friend_requests.include?(@friend) || @friend.friend?(current_user)
   end
 
   def request_params
