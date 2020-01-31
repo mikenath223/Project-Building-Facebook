@@ -18,8 +18,8 @@ class User < ApplicationRecord
 
   # validates :user_id, uniqueness: { scope: :post_id, message: 'You have already liked this post' }
 
-  has_many :friendships
-  has_many :inverse_friendships, class_name: :Friendship, foreign_key: :friend_id
+  has_many :friendships, dependent: :destroy
+  has_many :inverse_friendships, class_name: :Friendship, foreign_key: :friend_id, dependent: :destroy
 
   def friend?(user)
     friends.include?(user)
