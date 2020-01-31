@@ -32,11 +32,12 @@ class FriendshipsController < ApplicationController
     @friends = current_user.friends
   end
 
-  # def delete
-  #   friend_id = friendship_params[:friend_id]
-  #   @friendship = 
-
-  # end
+  def delete
+    friend_id = friendship_params[:friend_id]
+    @friendship = Friendship.where(user_id: curent_user.id, friend_id: friend_id)
+    @friendship.destroy_all
+    redirect_back(fallback_location: users_path)
+  end
 
   private
 

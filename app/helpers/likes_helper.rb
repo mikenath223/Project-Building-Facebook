@@ -2,14 +2,14 @@
 
 module LikesHelper
   def likeable_data(likeable)
-    { like: { likeable_id: likeable.id, likeable_type: likeable.class.name } }
+    { like: { likeable_id: likeable.id, likeable_type: likeable.class.name.capitalize } }
   end
 
   def liked?(likeable)
-    !likeable.likes.find_by(user_id: current_user.id).nil?
+    likeable.likes.where(user_id: current_user.id).exists?
   end
 
   def like_id(likeable)
-    likeable.likes.find_by(user_id: current_user.id).id
+    likeable.likes.where(user_id: current_user.id).ids
   end
 end

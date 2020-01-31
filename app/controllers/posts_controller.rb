@@ -31,8 +31,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts_cur = current_user.posts
-    @posts_friends = current_user.friends.map(&:posts)
+    @posts = (current_user.friends.map(&:posts) + current_user.posts).flatten
   end
 
   def show

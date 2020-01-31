@@ -33,7 +33,7 @@
   <% if comments?(post) %>
   <ul>
     <% post.comments.each do |c| %>
-    <li class="comment-descript">
+    <li class="comment-descript fadeIn">
       <span class="gravatar-comment"><%= gravatar_for c.user, size: 30 %></span>
      <b><%=  get_user(c).capitalize %></b><br>
       <%= c.content %> 
