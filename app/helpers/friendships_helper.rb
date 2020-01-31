@@ -10,11 +10,11 @@ module FriendshipsHelper
   end
 
   def relationship?(other_user)
-    other_user.friend_requests.include?(current_user)
+    other_user.rebound_requests.include?(current_user)
   end
 
   def pending_notif?(other_user)
-    other_user.pending_friends.include?(current_user)
+    other_user.friend_requests.include?(current_user)
   end
 
   def friends?(other_user)

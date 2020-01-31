@@ -14,12 +14,12 @@ class FriendshipsController < ApplicationController
   end
 
   def create_notification
-    @notifications = current_user.friend_requests
+    @notifications = current_user.rebound_requests
   end
 
   def accept_request
     friend = User.find(request_params[:friend])
-    if current_user.confirm_friend(friend)
+    if current_user.accept_request(friend)
       redirect_to root_path
       flash[:success] = "Great! You are now friends with #{(friend.nickname || friend.email).capitalize}."
     else
@@ -31,6 +31,12 @@ class FriendshipsController < ApplicationController
   def friends
     @friends = current_user.friends
   end
+
+  # def delete
+  #   friend_id = friendship_params[:friend_id]
+  #   @friendship = 
+
+  # end
 
   private
 

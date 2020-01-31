@@ -19,35 +19,29 @@ class User < ApplicationRecord
   # validates :user_id, uniqueness: { scope: :post_id, message: 'You have already liked this post' }
 
   has_many :friendships, dependent: :destroy
-  has_many :inverse_friendships, class_name: :Friendship, foreign_key: :friend_id, dependent: :destroy
-
-  def friend?(user)
-    friends.include?(user)
-  end
+  has_many :rebound_friendships, class_name: :Friendship, foreign_key: :friend_id, dependent: :destroy
 
   def friends
-    friends_array = friendships.map { |friends| friends.friend if friends.confirmed }
-    friends_array += inverse_friendships.map { |friends| friends.user if friends.confirmed }
-    friends_array.compact
+    friends = friendships.where(confirmed: true).map(&:friend) + rebound_friendships.where(confirmed: true).map(&:user)
   end
 
-  # Users who have yet to confirme friend requests
-  def pending_friends
-    pending_friends = friendships.map { |friends| friends.friend unless friends.confirmed }
-    pending_friends.compact
-  end
-
-  # Users who have requested to be friends
+  # Users with a linear relationship
   def friend_requests
-    requested_friendship = inverse_friendships.map do |friend_relation|
-      friend_relation.user unless friend_relation.confirmed
-    end
-    requested_friendship.compact
+    friend_requests = friendships.where(confirmed: nil).map(&:friend)
   end
 
-  def confirm_friend(user)
-    relationship = inverse_friendships.find { |friend_relation| friend_relation.user == user }
+  # Users who have requested to be friends thereby becoming the reverse of the relationship
+  def rebound_requests
+    rebound_requests = rebound_friendships.where(confirmed: nil).map(&:user)
+  end
+
+  def accept_request(user)
+    relationship = rebound_friendships.find { |friend_relation| friend_relation.user == user }
     relationship.update(confirmed: true)
     relationship.save
+  end
+
+  def friend?(user)
+    friends.match(user)
   end
 end
