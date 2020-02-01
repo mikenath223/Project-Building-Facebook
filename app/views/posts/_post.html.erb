@@ -1,19 +1,29 @@
 <h1>Post</h1>
-<div class="post-descript container-fluid col-12">
-  <h3>Author: <%= gravatar_for post.user, size: 20 %> <%= get_user(post) %></h3>
-  <p>Joined FaceBrook: <%= time_ago_in_words(post.user.created_at) %> ago </p>
+<div class="bg-white post-descript container-fluid col-12">
+  <h3><b>Author:</b> <%= gravatar_for post.user, size: 20 %> <%= get_user(post) %> <small>Joined FaceBrook: <%= time_ago_in_words(post.user.created_at) %> ago </small></h3>
   <ul>
-    <li> Title: <%= post.title %></li>
-    <li><%= post.content %></li>
-    <li>Published <%= time_ago_in_words(post.created_at) %> ago.</li>
+    <li><b>Title:</b> <%= post.title %></li>
+    <li><b>Content:</b> <%= post.content %></li>
   </ul>
+  <small class="badge badge-pill">Published <%= time_ago_in_words(post.created_at) %> ago.</small> <br>
   <button type="button" class="btn btn-primary">
     <%= link_to "#{pluralize(post.likes.count, 'like')} <i class='far fa-thumbs-up'></i>".html_safe, likes_path( likeable_data(post)), method: :post, class: "badge badge-light" %>
     <% if liked?(post) %>
     <%= link_to "Unlike <i class='far fa-thumbs-down'></i>".html_safe, like_path( like_id(post) ), method: :delete, class: "badge badge-light" %>
     <% end %>
-  </button> <br>
-
+  </button> 
+  <button type="button" class="comment-btn btn btn-primary">Add comment <%= fa_icon "comment" %> </button>
+  <div class="bg-white comment-block">
+    <div class="comment-form animated fadeInDown">
+      <%= form_for @comment do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :content %>
+      <%= f.text_area :content, class: 'form-control' %>
+      <%= f.hidden_field :post_id, value: post.id %>
+      <%= f.submit "Comment", class: "btn btn-success comment-btn"%>
+      <% end %>
+    </div>
+  </div>
   <% if owner?(post.user) %>
   <div class="wrap-controls">
     <%= fa_icon "ellipsis-h" %> <br>
@@ -25,10 +35,8 @@
     </span>
   </div>
 </div>
-
-
 <% end %>
-<div>
+<div class="bg-white">
   <h3> Comments </h3>
   <% if comments?(post) %>
   <ul>
@@ -60,17 +68,6 @@
   </ul>
   <% end %>
 </div>
-<div>
-  <button type="button" class="comment-btn btn btn-primary">Add comment <%= fa_icon "comment" %> </button>
-  <div class="comment-form animated fadeInDown">
-    <%= form_for @comment do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
-    <%= f.label :content %>
-    <%= f.text_area :content, class: 'form-control' %>
-    <%= f.hidden_field :post_id, value: post.id %>
-    <%= f.submit "Comment", class: "btn btn-success comment-btn"%>
-    <% end %>
-  </div>
-</div>
+
 
 <%= javascript_pack_tag 'custom' %>

@@ -1,4 +1,7 @@
 <header class="navbar navbar-fixed-top">
+  <% if current_user %>
+  <span class="gravatar-header"><%= link_to "#{gravatar_for(current_user, size: 30)}".html_safe, user_path(current_user) %></span>
+  <% end %>
   <%= link_to "FaceBrook", root_path, id: "logo"%>
   <ul class="nav navbar-nav navbar-right">
     <li><%= link_to "<span class='head-links'>Home</span> <i class='fas fa-home'></i>".html_safe, root_path %> <%= %>

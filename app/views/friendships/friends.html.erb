@@ -4,7 +4,7 @@
   <h1>Friends</h1>
   <% if @friends %>
     <% @friends.each do |fri| %>
-      <div class="animated slideInUp friends">
+      <div class="animated slideInUp friends bg-white">
         <%= gravatar_for fri, size: 30 %>
         <%= (fri.nickname || fri.email).capitalize %>
         <%= link_to "View User", user_path(fri), class: "btn btn-primary" %>

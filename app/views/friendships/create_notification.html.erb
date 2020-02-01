@@ -5,7 +5,7 @@
 <div class="container">
   <% if @notifications %>
   <% @notifications.each do |user| %>
-  <ul class="animated slideInRight users-wrap">
+  <ul class="animated slideInRight bg-white users-wrap">
     <li>You have a friend request from <span class="text-secondary"><%= (user.nickname || user.email).capitalize %></span></li>
     <li><%= link_to "View Sender", user_path(user), class: "btn btn-primary" %>
         <%= button_to "Accept Request", accept_path(request_data(user)), class: "btn btn-danger"  %>

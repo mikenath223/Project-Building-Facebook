@@ -34,7 +34,9 @@ class FriendshipsController < ApplicationController
 
   def delete
     friend_id = request_params[:friend]
-    @friendship = Friendship.find_by(user_id: current_user.id, friend_id: friend_id) || Friendship.find_by(user_id: friend_id, friend_id: current_user.id)
+    friends = Friendship.find_by(user_id: current_user.id, friend_id: friend_id)
+    rebound_friends = Friendship.find_by(user_id: friend_id, friend_id: current_user.id)
+    @friendship = friends || rebound_friends
     if @friendship.destroy
       flash[:success] = 'Friend relationship successsfully deleted.'
     else
