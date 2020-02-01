@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   get 'notifications', to: 'friendships#create_notification', as: 'notifications'
   post 'acceptrequest', to: 'friendships#accept_request', as: 'accept'
   get 'friends', to: 'friendships#friends', as: 'friends'
+  delete 'deletefriend', to: 'friendships#delete', as: 'delete_friend'
   # get '/profile/:id/update', to: 'users#edit', as
 end

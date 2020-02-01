@@ -3,7 +3,7 @@
 <div class="container-users">
   <% @users.each do |u| %>
   <ul class="users-wrap animated fadeIn rollIn">
-    <li> <%= gravatar_for u, size: 50 %></li>
+    <li> <%= gravatar_for u, size: 20 %></li>
     <li><%= link_to 'View user', user_path(u) %></li>
     <li>Nickname: <%= nickname(u) %></li>
     <li>Location: <%= location(u) %></li>
@@ -11,9 +11,10 @@
     <li> Age: <%= age(u) %></li>
     <hr>
     <% if friends?(u) %>
-    <p class="bg-primary text-center">Friends <i class='fas fa-user-friends'></i></p>
+    <p class="bg-success text-center badge badge-pill float-elem">Friends <i class='fas fa-user-friends'></i></p>
+    <%= link_to "<span>Unfriend</span> <i class='far fa-frown-open'></i>".html_safe, delete_friend_path(request_data(u)), method: :delete, data: { confirm: 'Are you sure you want to unfriend the user' }, class: "btn btn-danger"  %>
     <% elsif pending_notif?(u) %>
-    <%= button_to "Accept Request", accept_path(request_data(u)), class: "btn btn-danger"  %>
+    <%= button_to "Accept Request", accept_path(request_data(u)), class: "btn btn-success"  %>
     <% elsif !relationship?(u) %>
     <%= button_to "Send Friend Request", friendships_path(friendship_data(u)), method: :post, class: "btn btn-success" %>
     <% else %>

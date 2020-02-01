@@ -33,9 +33,13 @@ class FriendshipsController < ApplicationController
   end
 
   def delete
-    friend_id = friendship_params[:friend_id]
-    @friendship = Friendship.where(user_id: curent_user.id, friend_id: friend_id)
-    @friendship.destroy_all
+    friend_id = request_params[:friend]
+    @friendship = Friendship.find_by(user_id: current_user.id, friend_id: friend_id) || Friendship.find_by(user_id: friend_id, friend_id: current_user.id)
+    if @friendship.destroy
+      flash[:success] = 'Friend relationship successsfully deleted.'
+    else
+      flash[:warning] = 'There was an issue unfriending the user.'
+    end
     redirect_back(fallback_location: users_path)
   end
 

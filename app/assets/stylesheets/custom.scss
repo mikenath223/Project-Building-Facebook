@@ -34,15 +34,21 @@ ul {
 }
 
 .users-wrap {
+  position: relative;
   padding: 10px;
   box-shadow: 5px 5px 5px 1px gray;
+  border-top: 5px solid blue;
+  border-left: 1px solid gray;
   border-radius: 10px;
   margin-bottom: 40px;
 }
 
 .container-users {
   display: grid;
-  grid-template: repeat(4, 1fr) / repeat(auto-fit, minmax(250px, 350px));
+  width: 95%;
+  margin: 50px auto 0 auto;
+  justify-content: center;
+  grid-template: repeat(3, 1fr) / repeat(auto-fill, minmax(250px, 300px));
 }
 
 .update-form {
@@ -84,6 +90,12 @@ ul {
     margin-left: 40px;
     border: none;
   }
+}
+
+.float-elem {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .container-box {
@@ -341,9 +353,11 @@ header {
   }
   .nav {
     clear: left;
-    width: 110%;
     margin: auto;
-    width: 100%;
+    justify-content: space-evenly;
+    li {
+      margin: 0 5px;
+    }
   }
   .container-box {
     margin-top: 120px;
@@ -363,5 +377,16 @@ header {
 
   .update-form {
     width: 300px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .nav {
+    li {
+      margin: 0 4px;
+      &:first-child {
+        display: none;
+      }
+    }
   }
 }
