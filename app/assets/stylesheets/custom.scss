@@ -62,7 +62,6 @@ ul {
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
   width: 350px;
-  margin: 40px auto;
   padding-bottom: 10px;
   .field {
     margin: 20px auto;
@@ -433,7 +432,7 @@ header {
     width: 300px;
   }
   .wrap-controls {
-    margin-top: 30px;
+    left: 95%;
   }
 }
 
@@ -445,5 +444,11 @@ header {
         display: none;
       }
     }
+  }
+  .wrap-controls {
+    left: 90%;
+  }
+  .posts-container {
+    padding-left: 15px;
   }
 }
