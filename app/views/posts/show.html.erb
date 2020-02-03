@@ -1,7 +1,2 @@
 <%= provide(:title, 'Post') %>
-
-<h1>Post</h1>
-<ul id=<%= @post.id %>></ul>
-  <li><%= @post.title %></li>
-  <li><%= @post.content %></li>
-</ul>
+<%= render @post %>

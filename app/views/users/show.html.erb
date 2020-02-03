@@ -4,11 +4,14 @@
 
 <ul>
 <li> <%= gravatar_for @user, size: 50 %></li>
-<li>Nickname: <%= @user.nickname || "Nickname not set" %></li>
-<li>Location: <%= @user.location || "We don't know where you are" %></li>
-<li>Gender: <%= @user.gender || "We dont know what you are!!" %></li>
-<li>Age: <%= @user.age || "We don't know how old are you" %></li>
+<li>Nickname: <%= nickname(@user) %></li>
+<li>Location: <%= location(@user) %></li>
+<li>Gender: <%= gender(@user) %></li>
+<li>Age: <%= age(@user) %></li>
 </ul>
+<% if owner?(@user) %>
+  <%= link_to "Edit Profile", edit_user_registration_path(@user) %>
+<% end %>
 
 <h1> User Posts </h1>
 
@@ -21,8 +24,5 @@
 </ul>
 <% end %>
 <%else%>
-
 <p> No posts created by user</p>
-
-
 <% end %>
