@@ -11,19 +11,19 @@ module UsersHelper
     !user.posts.empty?
   end
 
-  def nickname(_user)
-    @user.nickname || 'Nickname not set'
+  def nickname(user)
+    user.nickname || 'Nickname not set'
   end
 
-  def location(_user)
-    @user.location || "We don't know where you are"
+  def location(user)
+    user.location || "We don't know where you are"
   end
 
-  def gender(_user)
-    @user.gender || 'We dont know what you are'
+  def gender(user)
+    user.gender || 'We dont know what you are'
   end
 
-  def age(_user)
-    @user.age || "We don't know how old you are"
+  def age(user)
+    user.age || "We don't know how old you are"
   end
 end

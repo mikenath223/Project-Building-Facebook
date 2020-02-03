@@ -16,4 +16,8 @@ module PostsHelper
   def attribute_exist?(post, attr)
     attr.where(user_id: current_user.id, post_id: post.id).exists?
   end
+
+  def find_user(id)
+    User.find(Post.find(id))
+  end
 end
