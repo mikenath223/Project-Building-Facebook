@@ -6,10 +6,10 @@ module LikesHelper
   end
 
   def liked?(likeable)
-    likeable.likes.where(user_id: current_user.id).exists?
+    !likeable.likes.find_by(user_id: current_user.id).nil?
   end
 
   def like_id(likeable)
-    likeable.likes.where(user_id: current_user.id).ids
+    likeable.likes.find_by(user_id: current_user.id).id
   end
 end
