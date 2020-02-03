@@ -49,6 +49,9 @@ ul {
   margin-bottom: 40px;
 }
 
+.form-signin h4 a[href="/users/auth/facebook"] {
+  display: none;
+}
 .container-users {
   display: grid;
   width: 95%;
@@ -351,7 +354,7 @@ header {
   border: 2px solid silver;
   max-width: 380px;
   min-width: 250px;
-  height: 450px;
+  height: 530px;
   background-color: rgba(255, 255, 255, 0.6);
   margin: auto;
   form {
