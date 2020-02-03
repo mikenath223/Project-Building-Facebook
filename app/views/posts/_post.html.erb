@@ -13,7 +13,6 @@
     <% end %>
   </button> 
   <button type="button" class="comment-btn btn btn-primary">Add comment <%= fa_icon "comment" %> </button>
-  <div class="bg-white comment-block">
     <div class="comment-form animated fadeInDown">
       <%= form_for @comment do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
@@ -23,7 +22,6 @@
       <%= f.submit "Comment", class: "btn btn-success comment-btn"%>
       <% end %>
     </div>
-  </div>
   <% if owner?(post.user) %>
   <div class="wrap-controls">
     <%= fa_icon "ellipsis-h" %> <br>
