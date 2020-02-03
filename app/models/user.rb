@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         devise :omniauthable, omniauth_providers: %i[facebook]
+  devise :omniauthable, omniauth_providers: %i[facebook]
 
   has_many :likes, dependent: :destroy
   has_many :posts, dependent: :destroy
@@ -17,7 +17,6 @@ class User < ApplicationRecord
   has_many :friendships, dependent: :destroy
   has_many :rebound_friendships, class_name: :Friendship, foreign_key: :friend_id, dependent: :destroy
 
-
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -26,7 +25,7 @@ class User < ApplicationRecord
       # user.image = auth.info.image
     end
   end
-  
+
   def friends
     friendships.where(confirmed: true).map(&:friend) + rebound_friendships.where(confirmed: true).map(&:user)
   end

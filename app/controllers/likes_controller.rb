@@ -25,7 +25,9 @@ class LikesController < ApplicationController
   private
 
   def already_liked?
-    !current_user.likes.find_by(likeables_id: like_params[:likeables_id], likeables_type: like_params[:likeables_type]).nil?
+    like_type = like_params[:likeables_type]
+    like_id = like_params[:likeables_id]
+    !current_user.likes.find_by(likeables_id: like_id, likeables_type: like_type).nil?
   end
 
   def set_likeables
