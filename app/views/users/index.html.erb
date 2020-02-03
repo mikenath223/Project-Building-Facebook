@@ -1,17 +1,27 @@
 <%= provide(:title, 'All users') %>
-
 <h2>FaceBrook Registered Users</h2>
-
-<div class="container">
-  <ul>
-    <% @users.each do |u| %>
-   <li> <%= gravatar_for u, size: 50 %></li>
-    <li><%= link_to 'View user', user_path(u) %></li>
-    <li>Nickname: <%= u.nickname || "Nickname not set" %></li>
-    <li>Location: <%= u.location || "We don't know where you are" %></li>
-    <li>Gender: <%= u.gender || "We dont know what you are" %></li>
-   <li> Age: <%= u.age || "We don't know how old you are" %></li>
-   <hr>
+<div class="container-users">
+  <% @users.each do |u| %>
+  <div class="users-wrap animated fadeIn rollIn bg-white">
+    <span> <%= gravatar_for u, size: 20 %></span>
+    <span><%= link_to 'View user', user_path(u) %></span>
+    <p><span class="span-block">Nickname: </span> <span><%= nickname(u) %></span></p>
+    <p><span class="span-block">Location: </span>  <span><%= location(u) %></span></p>
+    <p><span class="span-block">Gender: </span>  <span><%= gender(u) %></span></p>
+    <p><span class="span-block">Age: </span>  <span><%= age(u) %></span></p>
+    <hr>
+    <p>Joined FaceBrook: <span class="badge badge-pill"><%= time_ago_in_words(u.created_at) %> ago.</p>
+    <% if friends?(u) %>
+    <p class="bg-success text-center badge badge-pill float-elem">Friends <i class='fas fa-user-friends'></i></p>
+    <%= link_to "<span>Unfriend</span> <i class='far fa-frown-open'></i>".html_safe, delete_friend_path(request_data(u)), method: :delete, data: { confirm: 'Are you sure you want to unfriend the user' }, class: "btn btn-danger"  %>
+    <% elsif pending_notif?(u) %>
+    <%= button_to "Accept Request", accept_path(request_data(u)), class: "btn btn-info"  %>
+    <% elsif !relationship?(u) %>
+    <%= button_to "Send Friend Request", friendships_path(friendship_data(u)), method: :post, class: "btn btn-success" %>
+    <% else %>
+    <p class="bg-warning text-center badge badge-pill float-elem"><i class="far fa-question-circle"></i> Awaiting Response</p>
+    <%= link_to "<span>Delete Request</span> ".html_safe, delete_friend_path(request_data(u)), method: :delete, data: { confirm: 'Are you sure you want to delete this request' }, class: "btn btn-danger"  %>
     <% end %>
-  </ul>
+  </div>
+  <% end %>
 </div>
