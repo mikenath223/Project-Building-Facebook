@@ -1,0 +1,477 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: 0.5rem;
+}
+
+body {
+  background: #007bffcc;
+  background: linear-gradient(to right, #0062e6, rgba(51, 173, 255, 0.658));
+}
+
+ul {
+  li {
+    list-style: none;
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+}
+
+.gravatar-header {
+  visibility: visible;
+  float: right;
+  margin: 10px 30px 0 0;
+}
+
+.nav ul.show a {
+  font-size: 18px;
+}
+
+.users-wrap {
+  position: relative;
+  padding: 10px;
+  box-shadow: 5px 5px 5px 1px gray;
+  border-top: 5px solid blue;
+  border-left: 1px solid gray;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.form-signin h4 a[href="/users/auth/facebook"] {
+  display: none;
+}
+
+.container-users {
+  display: grid;
+  width: 95%;
+  margin: 50px auto 0 auto;
+  justify-content: center;
+  grid-template: repeat(3, 1fr) / repeat(auto-fill, minmax(250px, 300px));
+}
+
+.update-form {
+  border: 1px solid gray;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  width: 350px;
+  background-color: #fff;
+  margin: 40px auto;
+  padding-bottom: 10px;
+  .field {
+    margin: 20px auto;
+    width: 70%;
+    p {
+      margin: 0;
+    }
+  }
+  p {
+    margin: 0 50px;
+  }
+  .actions {
+    text-align: center;
+  }
+  h4,
+  p,
+  a {
+    margin-left: 40px;
+  }
+  .delete {
+    background-color: crimson;
+    color: #fff;
+    padding: 5px;
+    margin-left: 40px;
+    border: none;
+  }
+}
+
+.float-elem {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.wrap-controls {
+  margin-top: 20px;
+}
+
+.container-box {
+  position: relative;
+  margin: 50px 5px 0 5px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  a {
+    text-decoration: none;
+  }
+  h1,
+  h2 {
+    background-color: rgba(192, 192, 192, 0.322);
+    padding: 4px;
+    text-align: center;
+  }
+  button {
+    margin: 5px;
+  }
+  a.badge:hover,
+  a.badge:focus {
+    color: blue;
+  }
+  .post-descript,
+  .comment-descript {
+    background-color: aliceblue;
+    padding: 15px;
+    border-radius: 15px;
+  }
+}
+.flash {
+  visibility: hidden;
+  position: absolute;
+  padding: 0 15px;
+  background-color: rgb(43, 92, 184);
+  animation: slideInOut 8s forwards 0.3s ease-in-out;
+}
+
+.friends {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 30px 1px gray;
+}
+
+@keyframes slideInOut {
+  0% {
+    visibility: visible;
+    transform: translateX(-1000px);
+  }
+  36% {
+    visibility: visible;
+    transform: translateX(0px);
+  }
+  61% {
+    visibility: visible;
+    transform: translateX(50px);
+  }
+  100% {
+    visibility: hidden;
+    transform: translateX(120px);
+  }
+}
+
+.bg-white {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+hr {
+  border: 0.5px solid gray;
+}
+
+.gravatar {
+  border-radius: 50%;
+}
+
+.comment-block {
+  transition: height 2s linear;
+  .comment-form textarea {
+    border: 1px solid gray;
+  }
+}
+
+.posts-container {
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-radius: 5px;
+  border: 2px solid silver;
+  background-color: #fff;
+}
+
+.span-block {
+  display: inline-block;
+  width: 80px;
+  color: gray;
+}
+
+.card-signin {
+  margin: auto;
+  padding: 20px 0;
+  max-width: 430px;
+  min-width: 280px;
+  border: 2px solid silver;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+div.gender-select label {
+  font-size: 23px;
+}
+
+.form-signin {
+  margin: auto;
+  max-width: 290px;
+  min-width: 270px;
+  .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    padding: 1rem;
+    transition: all 0.2s;
+  }
+  h4 {
+    display: block;
+    margin: 20px 0 0 15px;
+    a {
+      background-color: #4f9af086;
+      padding: 10px;
+      border: 2px solid silver;
+    }
+  }
+}
+
+.form-label {
+  margin-bottom: 25px;
+  max-width: 250px;
+  min-width: 220px;
+  padding: 0 15px;
+  label {
+    line-height: 2;
+    color: #495057;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: all 0.1s ease-in-out;
+  }
+  input {
+    padding: var(--input-padding-y) var(--input-padding-x);
+    border: 2px solid silver;
+    &:focus {
+      border: none;
+    }
+    &:not([type="radio"]) {
+      max-width: 250px;
+      min-width: 200px;
+    }
+  }
+}
+
+.form-label input:not(:placeholder-shown) ~ label {
+  font-size: 19px;
+  color: rgba(15, 11, 11, 0.8);
+}
+
+.btn-facebook,
+.actions .btn-signup {
+  color: white;
+  background-color: #5a95f5;
+  max-width: 300px;
+  min-width: 240px;
+  margin: 0 10px;
+}
+
+.links {
+  background-color: rgba(54, 41, 10, 0.5);
+  text-align: center;
+  padding: 9px;
+  margin: 7px;
+  border-radius: 5px;
+  border: 1px solid rgba(54, 41, 10, 0.7);
+  a {
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: underline;
+    & * {
+      margin: 3px;
+    }
+  }
+}
+
+header {
+  background-color: rgba(41, 41, 233, 0.623);
+  .nav a {
+    color: #29f3e9;
+    font-size: 18px;
+  }
+  li {
+    display: block;
+    margin: 0 15px;
+    font-weight: 900;
+  }
+}
+
+#logo {
+  float: left;
+  margin-left: 50px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 7px;
+  font-weight: bold;
+  font-style: italic;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: black;
+  }
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+.login {
+  border: 2px solid silver;
+  max-width: 380px;
+  min-width: 250px;
+  height: 530px;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin: auto;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 55%;
+    margin-bottom: 20px;
+    input[type="submit"] {
+      width: 100px;
+      background-color: rgba(52, 114, 212, 0.671);
+      border: none;
+      font-size: 23px;
+      font-weight: bold;
+    }
+  }
+  a {
+    margin-left: 10%;
+    background-color: #4f9af086;
+    padding: 5px;
+    border: 2px solid silver;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  a[href="/users/auth/facebook"] {
+    @extend .btn-facebook;
+    text-align: center;
+    background-color: rgb(0, 102, 255);
+    border: none;
+    border-radius: 10px;
+  }
+}
+
+/* Fallback for Edge
+-------------------------------------------------- */
+
+@supports (-ms-ime-align: auto) {
+  .form-label > label {
+    visibility: hidden;
+  }
+  .form-label input::-ms-input-placeholder {
+    color: #777;
+  }
+}
+
+/* Fallback for IE
+-------------------------------------------------- */
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .form-label > label {
+    visibility: hidden;
+  }
+  .form-label input:-ms-input-placeholder {
+    color: #777;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .nav .head-links {
+    display: none;
+  }
+  .nav {
+    clear: left;
+    margin: auto;
+    justify-content: space-evenly;
+    li {
+      margin: 0 5px;
+    }
+  }
+  .container-box {
+    margin-top: 120px;
+  }
+  .nav ul.show {
+    left: initial;
+    right: 0;
+    li {
+      z-index: 99;
+      a {
+        text-align: right;
+        padding: 4px;
+      }
+    }
+  }
+  .update-form {
+    width: 300px;
+    background-color: #fff;
+    .field {
+      margin: 20px auto;
+      width: 95%;
+    }
+    form {
+      margin-left: 20px;
+    }
+  }
+  .wrap-controls {
+    margin-top: 30px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .nav {
+    li {
+      margin: 0 4px;
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+  .update-form {
+    width: 250px;
+    form {
+      input:not([type="radio"]) {
+        width: 90%;
+      }
+    }
+  }
+}

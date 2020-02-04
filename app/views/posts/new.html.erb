@@ -1,0 +1,23 @@
+<% provide(:title, "Create Post") %>
+
+<div class="container-fluid bg-white swing">
+  <h3>Create new post</h3>
+  <%= form_for(@post) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content, class: 'form-control' %>
+  </div>
+  
+  <div>
+    <%= f.submit "Post", class: 'btn btn-primary' %>
+  </div>
+  
+  <% end %>
+</div>

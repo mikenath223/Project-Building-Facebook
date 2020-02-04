@@ -1,0 +1,94 @@
+<!-- <h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %> -->
+
+
+  <div class="card-signin">
+      <h1 class="text-center">Sign Up</h1>
+      <div class="form-signin">
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="form-label">
+          <%= f.label :nickname %><br />
+          <%= f.text_field :nickname, autofocus: true, autocomplete: "nick" %>
+        </div>
+      
+        <div class="form-label gender-select">
+          <p>Select Gender</p>
+         <%= f.radio_button :gender, 'male' %>
+          <%= f.label :gender_male, "Male" %> <br>
+          
+         <%=  f.radio_button :gender, 'female' %>
+         <%= f.label :gender_female, "Female" %> <br>
+      
+         <%=  f.radio_button :gender, 'rather not say' %>
+         <%= f.label :gender_rathernotsay, "Rather not say" %>
+        </div>
+      
+        <div class="form-label">
+          <%= f.label :location %>
+          <%= f.text_field :location, autofocus: true %>
+        </div>
+      
+        <div class="form-label">
+          <%= f.label :age %>
+          <%= f.number_field :age, autofocus: true %>
+        </div>
+
+        <div class="form-label">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "inputPassword", :required => true %>
+        </div>
+
+
+        <div class="form-label">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "new-password", id: "inputPassword", class: "form-control", :required => true  %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+        </div>
+
+        <div class="form-label">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "inputPassword", class: "form-control", :required => true %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: "btn text-uppercase btn-signup" %>
+        </div>
+        <% end %>
+        <hr class="my-4">
+        <%= button_to "Sign up with Facebook",user_facebook_omniauth_authorize_path, class:"btn btn-sm btn-facebook btn-primary text-uppercase" %>
+       <h4>Already signed up? <%= render "devise/shared/links"%></h4>
+
+      </div>
+    </div>

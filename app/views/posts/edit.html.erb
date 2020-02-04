@@ -1,0 +1,23 @@
+<%= provide(:title, 'Edit Post') %>
+
+<div class="container bg-white">
+  <h3>Edit Post</h3>
+  <%= form_for(@post) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content, class: 'form-control' %>
+  </div>
+  
+  <div>
+    <%= f.submit "Update Post", class: 'btn btn-primary' %>
+  </div>
+  
+  <% end %>
+</div>

@@ -1,0 +1,9 @@
+<h1>Comments Update</h1>
+
+<div class="bg-white">
+  <%= form_for @comment do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content, class: 'form-control' %>
+  <%= f.submit "Add Comment", class: "btn btn-success"%>
+  <% end %>
+</div>

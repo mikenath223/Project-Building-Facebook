@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+ @import '@fortawesome/fontawesome-free/scss/fontawesome';
+ @import '@fortawesome/fontawesome-free/scss/regular';
+ @import '@fortawesome/fontawesome-free/scss/solid';
+ @import '@fortawesome/fontawesome-free/scss/brands';
+ @import "font-awesome";
+ @import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
+
+ 
+ body {
+   font-size: 18px;
+   .container-box {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 18px;
+   }
+ }
