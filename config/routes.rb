@@ -1,15 +1,11 @@
 Rails.application.routes.draw do
-  # get 'comments/new'
-  # post 'comments/create'
-  # get 'comments/edit'
-  # post 'comments/update'
-
-  devise_for :users
   
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
   resources :posts
   resources :comments
   resources :likes, only: %i[index create destroy]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   root to: 'posts#index'
   
   devise_scope :user do
@@ -23,5 +19,4 @@ Rails.application.routes.draw do
   post 'acceptrequest', to: 'friendships#accept_request', as: 'accept'
   get 'friends', to: 'friendships#friends', as: 'friends'
   delete 'deletefriend', to: 'friendships#delete', as: 'delete_friend'
-  # get '/profile/:id/update', to: 'users#edit', as
 end

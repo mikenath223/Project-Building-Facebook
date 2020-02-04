@@ -1,7 +1,6 @@
 <h1>Post</h1>
 <div class="bg-white post-descript container-fluid col-12">
-  <h3><b>Author:</b> <%= gravatar_for post.user, size: 20 %> <%= get_user(post) %> <small>Joined FaceBrook:
-      <%= time_ago_in_words(post.user.created_at) %> ago </small></h3>
+  <h3> <%= gravatar_for post.user, size: 20 %> <%= get_user(post) %> <small>Joined FaceBrook: <%= time_ago_in_words(post.user.created_at) %> ago </small></h3>
   <ul>
     <li><b>Title:</b> <%= post.title %></li>
     <li><b>Content:</b> <%= post.content %></li>
@@ -14,15 +13,16 @@
     <% end %>
   </button>
   <button type="button" class="comment-btn btn btn-primary">Add comment <%= fa_icon "comment" %> </button>
-  <div class="comment-form animated fadeInDown">
-    <%= form_for @comment do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
-    <%= f.label :content %>
-    <%= f.text_area :content, class: 'form-control' %>
-    <%= f.hidden_field :post_id, value: post.id %>
-    <%= f.submit "Comment", class: "btn btn-success comment-btn"%>
-    <% end %>
-  </div>
+  <span class="badge badge-pill badge-info"><%= pluralize(post.comments.count, "comment") %></span>
+    <div class="comment-form animated fadeInDown">
+      <%= form_for @comment do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :content %>
+      <%= f.text_area :content, autofocus: true, class: 'form-control' %>
+      <%= f.hidden_field :post_id, value: post.id %>
+      <%= f.submit "Comment", class: "btn btn-success comment-btn"%>
+      <% end %>
+    </div>
   <% if owner?(post.user) %>
   <div class="dropdown wrap-controls float-elem">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
