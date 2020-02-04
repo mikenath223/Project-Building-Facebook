@@ -5,7 +5,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-# Private-Events
+# FaceBrook App
 <br />
 <p align="center">
   <a href="https://www.microverse.org/">
@@ -13,7 +13,7 @@
   </a>
 
   <h3 align="center">
-	 Private Events
+	 Project Building Facebook replica [FaceBrook App]
   </h3>
 
   <h3 align="center">
@@ -21,22 +21,24 @@
   </h3>
 
   <p align="center">
-    Users signin and create events and then view various events in order of previous, upcoming and present events. Users can send invitations to eents and also attend events created by other users. Events take place at a specific date and at a location.
+    This project implements the basic functionality found on the popular social media app called Facebook.
+    It is a part of the <a href="https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project">odin project curriculum.</a>
     <br />
-    <a href="https://github.com/MarioDena/Private-Events/blob/master/README.md"><strong>Explore the docs 📚</strong></a>
+    <a href="https://github.com/mikenath223/Project-Building-Facebook/blob/master/README.md"><strong>Explore the docs 📚</strong></a>
     <br />
     <br />
 	  🖊️
-    <a href="https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations#your-task">Assigment</a>
+    <a href="https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project">Assigment</a>
     🐛
-    <a href="https://github.com/MarioDena/Private-Events/issues">Report Bug</a>
+    <a href="https://github.com/mikenath223/Project-Building-Facebook/issues">Report Bug</a>
     🙏
-    <a href="https://github.com/MarioDena/Private-Events/issues">Request Feature</a>
+    <a href="https://github.com/mikenath223/Project-Building-Facebook/issues">Request Feature</a>
   </p>
 </p>
 
-## Project: Associations
-Users can create events and send invitations and parties. Events take place at a specific date and at a location. An application named Private Events that behaves similar to [Eventbrite](https://www.eventbrite.com/). The main goal is to put in practice the main concepts of Associations in rails.
+## Project Building FaceBrook App
+In this project users can sign up either on the app or through their facebook account and follow other users.
+[Facebook](https://www.facebook.com/). The main goal is to put in practice the main concepts of Associations, Authentication with devise gem, and units & integration tests in rails.
 
 # Validations
 
@@ -52,11 +54,14 @@ Users can create events and send invitations and parties. Events take place at a
 
 # Features
 
-* Followed the [tutorial](https://www.learnenough.com/ruby-on-rails-4th-edition-tutorial/user_microposts) 
-* Using different databases for development (sqlite3) and production (postgres)
+* Users sign up and send friend          requests to other users.
+* Posts are created by users and only     a user's friend can view them.
+* Comments can be made on posts.
+* Likes can be made by users on posts and comments.
+* Postgres databases both for development and production 
 * Associates several tables on the database using foreign keys:
 
-<img src="docs/schema.png" alt="Schema" width="400" height="400">
+<img src="docs/Facebook-CLone_ERB.png" alt="ERB" width="500" height="500">
 
 
 * Use of `cookies` and `flash`
@@ -75,7 +80,7 @@ Users can create events and send invitations and parties. Events take place at a
 # Authors
 
 * [Ukeje Michgolden](https://github.com/mikenath223)
-* [Mario E. Delgado](https://github.com/MarioDena)
+* [Mario E. Delgado](https://github.com/mikenath223)
 
 # License
 
@@ -88,13 +93,13 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/MarioDena/Private-Events.svg?style=flat-square
-[contributors-url]: https://github.com/MarioDena/Private-Events/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/MarioDena/Private-Events
-[forks-url]: https://github.com/MarioDena/Private-Events/network/members
-[stars-shield]: https://img.shields.io/github/stars/MarioDena/Private-Events
-[stars-url]: https://github.com/MarioDena/Private-Events/stargazers
-[issues-shield]: https://img.shields.io/github/issues/MarioDena/Private-Events
-[issues-url]: https://github.com/MarioDena/Private-Events/issues
-[license-shield]: https://img.shields.io/github/license/MarioDena/Private-Events
-[license-url]: https://github.com/MarioDena/Private-Events/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/mikenath223/Project-Building-Facebook.svg?style=flat-square
+[contributors-url]: https://github.com/mikenath223/Project-Building-Facebook/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/mikenath223/Project-Building-Facebook
+[forks-url]: https://github.com/mikenath223/Project-Building-Facebook/network/members
+[stars-shield]: https://img.shields.io/github/stars/mikenath223/Project-Building-Facebook
+[stars-url]: https://github.com/mikenath223/Project-Building-Facebook/stargazers
+[issues-shield]: https://img.shields.io/github/issues/mikenath223/Project-Building-Facebook
+[issues-url]: https://github.com/mikenath223/Project-Building-Facebook/issues
+[license-shield]: https://img.shields.io/github/license/mikenath223/Project-Building-Facebook
+[license-url]: https://github.com/mikenath223/Project-Building-Facebook/blob/master/LICENSE.txt
