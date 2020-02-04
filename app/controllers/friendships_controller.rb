@@ -19,6 +19,7 @@ class FriendshipsController < ApplicationController
 
   def accept_request
     friend = User.find(request_params[:friend])
+    Friendship.create(user_id: current_user.id, friend_id: friend.id)
     if current_user.accept_request(friend)
       redirect_to root_path
       flash[:success] = "Great! You are now friends with #{(friend.nickname || friend.email).capitalize}."
