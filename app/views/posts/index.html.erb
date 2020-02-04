@@ -16,12 +16,13 @@
       <%= link_to "Unlike <i class='far fa-thumbs-down'></i>".html_safe, like_path( like_id(p) ), method: :delete, class: "badge badge-light" %>
       <% end %>
     </button> 
-    <button type="button" class="index-comment-btn btn btn-primary">Add comment <%= fa_icon "comment" %> </button>
+      <button type="button" class="index-comment-btn btn btn-primary">Add comment <%= fa_icon "comment" %> </button> <br>
+      <span class="badge badge-pill badge-info"><%= pluralize(p.comments.count, "comment") %></span>
       <div class="index-comment-form animated fadeInDown">
         <%= form_for @comment do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <%= f.label :content %>
-        <%= f.text_area :content, class: 'form-control' %>
+        <%= f.text_area :content, autofocus: true, class: 'form-control' %>
         <%= f.hidden_field :post_id, value: p.id %>
         <%= f.submit "Comment", class: "btn btn-success comment-btn"%>
         <% end %>
