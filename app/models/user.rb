@@ -16,18 +16,21 @@ class User < ApplicationRecord
   has_many :friendships, dependent: :destroy
   has_many :rebound_friendships, class_name: :Friendship, foreign_key: :friend_id, dependent: :destroy
 
+  has_many :pending_friendships, -> { where confirmed: nil }, class_name: :Friendship, foreign_key: :user_id
+  has_many :confirmed_friendships, -> { where confirmed: true }, class_name: :Friendship, foreign_key: :user_id
+  has_many :pending_rebounds, -> { where confirmed: nil }, class_name: :Friendship, foreign_key: :friend_id
+  has_many :confirmed_rebounds, -> { where confirmed: true }, class_name: :Friendship, foreign_key: :friend_id
+
   def friends
-    friendships.where(confirmed: true).map(&:friend) + rebound_friendships.where(confirmed: true).map(&:user)
+    confirmed_friendships.map(&:friend) + confirmed_rebounds.map(&:user)
   end
 
-  # Users with a linear relationship
   def friend_requests
-    friendships.where(confirmed: nil).map(&:friend)
+    pending_friendships.map(&:friend)
   end
 
-  # Users who have requested to be friends thereby becoming the reverse of the relationship
   def rebound_requests
-    rebound_friendships.where(confirmed: nil).map(&:user)
+    pending_rebounds.map(&:user)
   end
 
   def accept_request(user)

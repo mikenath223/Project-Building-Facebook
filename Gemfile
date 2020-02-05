@@ -28,7 +28,7 @@ gem 'font-awesome-rails'
 gem 'jquery-rails', '4.3.5'
 gem 'omniauth-facebook'
 gem 'uglifier', '3.2.0'
-
+gem 'will_paginate', '3.1.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
