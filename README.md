@@ -17,7 +17,7 @@
   </h3>
 
   <h3 align="center">
-	 Live Version - https://brookapp.herokuapp.com/
+	 Live Version link - https://brookapp.herokuapp.com/
   </h3>
 
   <p align="center">
