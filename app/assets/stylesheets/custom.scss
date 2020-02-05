@@ -49,6 +49,12 @@ ul {
   margin-bottom: 40px;
 }
 
+.container-users .pagination {
+  margin-left: auto;
+  margin-top: 100%;
+}
+
+
 .form-signin h4 a[href="/users/auth/facebook"] {
   display: none;
 }
@@ -391,12 +397,6 @@ header {
   }
 }
 
-.container-users .pagination {
-  grid-column: 3 / 3;
-  margin-top: 100%;
-  margin-bottom: 0px;
-  padding-top: 20%;
-}
 
 /* Fallback for Edge
 -------------------------------------------------- */
