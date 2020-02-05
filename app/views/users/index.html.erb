@@ -2,7 +2,7 @@
 <h2>FaceBrook Registered Users</h2>
 <div class="container-users">
   <% @users.each do |u| %>
-  <div class="users-wrap animated fadeIn rollIn bg-white">
+  <div class="users-wrap animated fadeIn rubberBand bg-white">
     <span> <%= gravatar_for u, size: 20 %></span>
     <span><%= link_to 'View user', user_path(u) %></span>
     <p><span class="span-block">Nickname: </span> <span><%= nickname(u) %></span></p>

@@ -49,6 +49,10 @@ ul {
   margin-bottom: 40px;
 }
 
+.form-signin h4 a[href="/users/auth/facebook"] {
+  display: none;
+}
+
 .container-users {
   display: grid;
   width: 95%;
@@ -62,6 +66,8 @@ ul {
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
   width: 350px;
+  background-color: #fff;
+  margin: 40px auto;
   padding-bottom: 10px;
   .field {
     margin: 20px auto;
@@ -350,7 +356,7 @@ header {
   border: 2px solid silver;
   max-width: 380px;
   min-width: 250px;
-  height: 450px;
+  height: 530px;
   background-color: rgba(255, 255, 255, 0.6);
   margin: auto;
   form {
@@ -376,6 +382,20 @@ header {
     margin-bottom: 10px;
     display: inline-block;
   }
+  a[href="/users/auth/facebook"] {
+    @extend .btn-facebook;
+    text-align: center;
+    background-color: rgb(0, 102, 255);
+    border: none;
+    border-radius: 10px;
+  }
+}
+
+.container-users .pagination {
+  grid-column: 3 / 3;
+  margin-top: 100%;
+  margin-bottom: 0px;
+  padding-top: 20%;
 }
 
 /* Fallback for Edge
@@ -430,6 +450,14 @@ header {
   }
   .update-form {
     width: 300px;
+    background-color: #fff;
+    .field {
+      margin: 20px auto;
+      width: 95%;
+    }
+    form {
+      margin-left: 20px;
+    }
   }
   .wrap-controls {
     left: 95%;
@@ -450,5 +478,13 @@ header {
   }
   .posts-container {
     padding-left: 15px;
+  .update-form {
+    width: 250px;
+    form {
+      input:not([type="radio"]) {
+        width: 90%;
+      }
+    }
   }
+}
 }

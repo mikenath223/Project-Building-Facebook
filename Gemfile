@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bootstrap-sass', '3.4.1'
 gem 'devise'
+gem 'figaro'
 gem 'font-awesome-rails'
 gem 'jquery-rails', '4.3.5'
 gem 'omniauth-facebook'

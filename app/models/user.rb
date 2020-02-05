@@ -5,6 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  devise :omniauthable, omniauth_providers: %i[facebook]
 
   has_many :likes, dependent: :destroy
   has_many :posts, dependent: :destroy
@@ -20,6 +21,15 @@ class User < ApplicationRecord
   has_many :confirmed_friendships, -> { where confirmed: true }, class_name: :Friendship, foreign_key: :user_id
   has_many :pending_rebounds, -> { where confirmed: nil }, class_name: :Friendship, foreign_key: :friend_id
   has_many :confirmed_rebounds, -> { where confirmed: true }, class_name: :Friendship, foreign_key: :friend_id
+  
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.nickname = auth.info.name
+      user.image = auth.info.image
+    end
+  end
 
   def friends
     confirmed_friendships.map(&:friend) + confirmed_rebounds.map(&:user)
