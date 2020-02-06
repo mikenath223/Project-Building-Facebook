@@ -17,7 +17,7 @@
   </h3>
 
   <h3 align="center">
-	 Live Version link - https://brookapp.herokuapp.com/
+	 Live Version link - https://brookapp.herokuapp.com/ or https://facebrookapp.herokuapp.com/
   </h3>
 
   <p align="center">
@@ -46,6 +46,8 @@ In this project users can sign up either on the app or through their facebook ac
 
 # Get Started
 
+* Make sure your PG cluster is running
+* Run `bundle install` & `rails webpacker:install`
 * Run `rails db:migrate` to migrate db
 * Run tests with `bundle exec rspec <insert file_path here>`
 * Run `rails db:seed` to generate seed data.
@@ -80,7 +82,7 @@ In this project users can sign up either on the app or through their facebook ac
 # Authors
 
 * [Ukeje Michgolden](https://github.com/mikenath223)
-* [Mario E. Delgado](https://github.com/mikenath223)
+* [Mario E. Delgado](https://github.com/mariodena)
 
 # License
 
