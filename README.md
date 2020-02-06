@@ -17,7 +17,7 @@
   </h3>
 
   <h3 align="center">
-	 Live Version - https://thawing-lowlands-25133.herokuapp.com/
+	 Live Version link - https://brookapp.herokuapp.com/
   </h3>
 
   <p align="center">
@@ -61,7 +61,7 @@ In this project users can sign up either on the app or through their facebook ac
 * Postgres databases both for development and production 
 * Associates several tables on the database using foreign keys:
 
-<img src="docs/Facebook-CLone_ERB.png" alt="ERB" width="500" height="500">
+<img src="docs/Facebook-CLone_ERB.png" alt="ERB" width="700" height="500">
 
 
 * Use of `cookies` and `flash`
