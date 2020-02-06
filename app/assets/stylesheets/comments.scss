@@ -3,19 +3,24 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .wrap-controls {
   position: absolute;
-  right: 25px;
+  left: 90%;
   top: 10px;
+  width: 50px;
   p {
     margin-top: 5px;
     text-align: right;
+    padding-right: 15px;
+  }
+  ul.show {
+    margin-right: 20px;
+    left: initial;
+    right: 90px;
   }
 }
 
 .fa-ellipsis-h {
   cursor: pointer;
   color: rgb(29, 28, 28);
-  float: right;
-  margin-top: 15px;
 }
 
 .controls,
@@ -30,11 +35,6 @@
   padding: 8px;
   border-radius: 8px;
   border: 1px solid silver;
-}
-
-.wrap-controls:hover > .controls,
-.wrap-controls:focus > .controls{
-  display: block;
 }
 
 .active {
