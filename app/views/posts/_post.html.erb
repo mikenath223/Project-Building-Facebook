@@ -46,7 +46,7 @@
       <%= c.content %> 
       <br>
       <button type="button" class="btn btn-primary">
-        <%= link_to "#{pluralize(c.likes.count, 'like')} <i class='far fa-thumbs-up'></i>".html_safe, likes_path( likeables_data(c)), method: :post, class: "badge badge-light" %>
+        <%= link_to "#{pluralize(c.likes.count, 'like')} <i class='far fa-thumbs-up'></i>".html_safe, likes_path( likeable_data(c)), method: :post, class: "badge badge-light" %>
         <% if liked?(c) %>
         <%= link_to "Unlike <i class='far fa-thumbs-down'></i>".html_safe, like_path( like_id(c) ), method: :delete, class: "badge badge-light" %>
         <% end %>
