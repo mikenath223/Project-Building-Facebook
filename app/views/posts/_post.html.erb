@@ -1,7 +1,7 @@
 <h2>Post</h2>
 <div class="bg-white post-descript container-fluid col-12">
-  <h3> <%= gravatar_for post.user, size: 20 %> <%= get_user(post) %> <small>Joined FaceBrook:
-      <%= time_ago_in_words(post.user.created_at) %> ago </small></h3>
+  <h2 class="text-left"> <%= gravatar_for post.user, size: 20 %> <%= get_user(post) %> <small>Joined FaceBrook:
+      <%= time_ago_in_words(post.user.created_at) %> ago </small></h1>
   <ul>
     <li><b>Title:</b> <%= post.title %></li>
     <li><b>Content:</b> <%= post.content %></li>
