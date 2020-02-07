@@ -3,12 +3,12 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .wrap-controls {
   position: absolute;
-  left: 90%;
+  left: calc(100% - 100px);
   top: 10px;
-  width: 50px;
+  width: 100px;
   p {
     margin-top: 5px;
-    text-align: right;
+    text-align: center;
     padding-right: 15px;
   }
   ul.show {
@@ -16,11 +16,16 @@
     left: initial;
     right: 90px;
   }
+  text-align: right;
+  &:hover .controls{
+    display: inline-block;
+  }
 }
 
 .fa-ellipsis-h {
   cursor: pointer;
   color: rgb(29, 28, 28);
+  margin-right: 20px;
 }
 
 .controls,
@@ -30,11 +35,23 @@
   display: none;
 }
 
+.comments-wrap {
+  display: block;
+  height: max-content;
+}
+
+.comment-descript {
+  box-shadow: 3px 3px 10px gray;
+  margin-bottom: 50px;
+  display: block;
+}
+
 .controls {
   background-color: #fff;
   padding: 8px;
   border-radius: 8px;
   border: 1px solid silver;
+  margin-top: 5px;
 }
 
 .active {

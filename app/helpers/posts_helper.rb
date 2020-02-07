@@ -6,7 +6,8 @@ module PostsHelper
   end
 
   def get_user(var)
-    var.user.nickname || var.user.email
+    return var.user.email if var.user.nickname.blank?
+    var.user.nickname
   end
 
   def owner?(user)

@@ -13,18 +13,22 @@ module UsersHelper
   end
 
   def nickname(user)
-    user.nickname || 'Nickname not set'
+     return 'Nickname not set' if user.nickname.blank?
+     user.nickname
   end
 
   def location(user)
-    user.location || "We don't know where you are"
+    return "Location not set" if user.location.blank?
+    user.location
   end
 
   def gender(user)
-    user.gender || 'We dont know what you are'
+    return "Gender not set" if user.gender.blank?
+    user.gender
   end
 
   def age(user)
-    user.age || "We don't know how old you are"
+    return "Age not set" if user.age.blank?
+    user.age
   end
 end

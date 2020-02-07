@@ -1,0 +1,21 @@
+<span class="gravatar-comment"><%= gravatar_for object.user, size: 30 %></span>
+<b><%=  get_user(object).capitalize %></b><br>
+<%= object.content %>
+<br>
+<button type="button" class="btn btn-primary">
+  <%= link_to "#{pluralize(object.likes.count, 'like')} <i class='far fa-thumbs-up'></i>".html_safe, likes_path( likeable_data(object)), method: :post, class: "badge badge-light" %>
+  <% if liked?(object) %>
+  <%= link_to "Unlike <i class='far fa-thumbs-down'></i>".html_safe, like_path( like_id(object) ), method: :delete, class: "badge badge-light" %>
+  <% end %>
+</button>
+<% if owner?(object.user) %>
+<div class="wrap-controls comments-control">
+  <%= fa_icon "ellipsis-h" %> <br>
+  <span class="controls">
+    <p><%= link_to "Update", edit_comment_path(object) %></p>
+    <p>
+      <%= link_to "Delete", comment_path(object), method: :delete, data: { confirm: 'Confirm delete comment' } %>
+    </p>
+  </span>
+</div>
+<% end %>

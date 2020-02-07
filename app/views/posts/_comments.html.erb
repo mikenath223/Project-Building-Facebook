@@ -1,0 +1,7 @@
+<%= form_for @comment do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.label :content %>
+  <%= f.text_area :content, autofocus: true, class: 'form-control' %>
+  <%= f.hidden_field :post_id, value: object.id %>
+  <%= f.submit "Comment", class: "btn btn-success comment-btn"%>
+<% end %>

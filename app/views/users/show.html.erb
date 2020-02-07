@@ -1,5 +1,5 @@
 <%= provide(:title, 'User') %>
-<h1><%= @user.nickname || @user.email %> profile</h1>
+<h3><%= @user.nickname || @user.email %> profile</h3>
 <ul class="bg-white">
   <li> <%= gravatar_for @user, size: 50 %></li>
   <li>Nickname: <%= nickname(@user) %></li>
@@ -10,7 +10,7 @@
   <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-primary" %>
   <% end %>
 </ul>
-<h1> User Posts </h1>
+<h3> User Posts </h3>
 <%if posts_exist?(@user) %>
   <% @user.posts.each do |p|%>
     <ul class="bg-white">

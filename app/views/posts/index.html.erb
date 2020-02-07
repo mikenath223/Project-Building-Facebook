@@ -19,16 +19,10 @@
       <button type="button" class="index-comment-btn btn btn-primary">Add comment <%= fa_icon "comment" %> </button> <br>
       <span class="badge badge-pill badge-info"><%= pluralize(p.comments.count, "comment") %></span>
       <div class="index-comment-form animated fadeInDown">
-        <%= form_for @comment do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
-        <%= f.label :content %>
-        <%= f.text_area :content, autofocus: true, class: 'form-control' %>
-        <%= f.hidden_field :post_id, value: p.id %>
-        <%= f.submit "Comment", class: "btn btn-success comment-btn"%>
-        <% end %>
+       <%= render 'comments', object: p %>
       </div>
     <% if owner?(p.user) %>
-    <div class="wrap-controls">
+    <div class="wrap-controls post-index-controls">
       <%= fa_icon "ellipsis-h" %> <br>
       <span class="controls">
         <p><%= link_to 'Edit', edit_post_path(p) %></p>
