@@ -31,7 +31,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = (current_user.friends.map(&:posts) + current_user.posts).flatten || Posts.all.take(10)
+    @posts = (current_user.friends.map(&:posts) + current_user.posts).flatten
+    @posts = Post.all.take(10) if @posts[0].nil?
     @comment = Comment.new # To render comment form on post show view
   end
 
