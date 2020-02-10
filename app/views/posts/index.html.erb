@@ -1,5 +1,14 @@
 <%= provide(:title, 'Posts Feed') %>
 
+<section class="welcome">
+  <h2>Welcome to FaceBrook!!!</h2>
+  <h3><%= link_to "Find Friends <i class='fas fa-search'></i>".html_safe, users_path, class: "btn btn-success" %></h3>
+</section>
+
+<h3>Create new post</h3>
+<div class="post-form-index bg-white bounceInDown">
+  <%= render 'create_post' %>
+</div>
 <h2 class="text-center m-5">Post Feed</h2>
 <hr>
   <% @posts.each do |p| %>

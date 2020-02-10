@@ -181,6 +181,29 @@ ul {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 10px;
   margin-bottom: 20px;
+  form {
+    border-radius: 10px;
+    border: 2px solid silver;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    div {
+      margin: 10px 0;
+      &:last-child {
+        margin-top: 25px;
+      }
+    }
+  }
+}
+
+.welcome {
+  background-color: cornflowerblue;
+  padding: 10px;
+  border-radius: 10px;
+  h2 {
+    font-style: italic;
+    border: 2px solid silver;
+  }
 }
 
 hr {

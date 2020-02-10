@@ -32,7 +32,7 @@ class User < ApplicationRecord
   end
 
   def friends
-    confirmed_friendships.map(&:friend) + confirmed_rebounds.map(&:user)
+    (confirmed_friendships.map(&:friend) + confirmed_rebounds.map(&:user)).uniq
   end
 
   def friend_requests
