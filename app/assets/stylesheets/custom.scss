@@ -465,6 +465,21 @@ header {
   .container-box {
     margin-top: 120px;
   }
+
+  .bg-white {
+    form {
+      flex-direction: column;
+      justify-content: center;
+      padding: 10px;
+      div {
+        width: 100%;
+        &:last-child {
+          text-align: center;
+        }
+      }
+    }
+  }
+
   .nav ul.show {
     left: initial;
     right: 0;
