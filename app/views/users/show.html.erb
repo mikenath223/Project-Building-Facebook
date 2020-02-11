@@ -13,12 +13,41 @@
 <h3> User Posts </h3>
 <%if posts_exist?(@user) %>
   <% @user.posts.each do |p|%>
-    <ul class="bg-white">
-      <li> <%= p.title %> </li>
-      <li> <%= p.content %> </li>
-      <li> <%= p.created_at.to_date%> </li>
-    </ul>
+
+  <ul class="posts-container">
+    <li> <%= gravatar_for p.user, size: 30 %> <small><%= get_user(p) %></small></li>
+    <li><%= link_to 'View Post', post_path(p.id) %></li>
+    <li>Title: <%= p.title %></li>
+    <li>Content: <%= p.content %></li>
+    <span class="bg-primary published badge badge-pill float-elem"> Published <%= time_ago_in_words(p.created_at) %> ago. </span>
+
+    <button type="button" class="btn btn-primary">
+      <%= link_to "#{pluralize(p.likes.count, 'like')} <i class='far fa-thumbs-up'></i>".html_safe, likes_path( likeable_data(p)), method: :post, class: "badge badge-light" %>
+      <% if liked?(p) %>
+      <%= link_to "Unlike <i class='far fa-thumbs-down'></i>".html_safe, like_path( like_id(p) ), method: :delete, class: "badge badge-light" %>
+      <% end %>
+    </button> 
+      <button type="button" class="index-comment-btn btn btn-primary">Add comment <%= fa_icon "comment" %> </button> <br>
+      <span class="badge badge-pill badge-info"><%= pluralize(p.comments.count, "comment") %></span>
+      <div class="index-comment-form animated fadeInDown">
+       <%= render 'posts/comments', object: p %>
+      </div>
+    <% if owner?(p.user) %>
+    <div class="wrap-controls post-index-controls">
+      <%= fa_icon "ellipsis-h" %> <br>
+      <span class="controls">
+        <p><%= link_to 'Edit', edit_post_path(p) %></p>
+        <p>
+          <%= link_to 'Delete',  post_path(p), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
+        </p>
+      </span>
+    </div>
+  <% end %>
+  </ul>
+
   <% end %>
 <%else%>
   <p class="bg-white"> No posts created by user</p>
 <% end %>
+
+<%= javascript_pack_tag 'custom' %>

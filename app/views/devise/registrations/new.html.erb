@@ -60,7 +60,9 @@
       
         <div class="form-label">
           <%= f.label :age %>
-          <%= f.number_field :age, autofocus: true %>
+          <%= f.number_field :age, autofocus: true, pattern: "[^\-]+", onkeypress: "return (event.charCode === 8 || event.charCode === 0 || 
+          event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 
+          57", onpaste: "return false", min: "0" %>
         </div>
 
         <div class="form-label">

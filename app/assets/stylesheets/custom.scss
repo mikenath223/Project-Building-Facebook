@@ -48,9 +48,21 @@ ul {
   margin-bottom: 40px;
 }
 
-.container-users .pagination {
+.pagination {
   margin-left: auto;
   margin-top: 100%;
+  position: absolute;
+  bottom: 10px;
+  left: 40%;
+  border: 3px solid gray;
+  background-color: lime;
+  .current {
+    background-color: yellowgreen;
+    padding: 3px;
+  }
+  * {
+    margin-right: 4px;
+  }
 }
 
 
@@ -110,8 +122,8 @@ ul {
 
 .container-box {
   position: relative;
-  margin: 50px 5px 0 5px;
-  padding: 20px;
+  margin: 50px 5px;
+  padding: 20px 20px 80px 20px;
   background-color: rgba(255, 255, 255, 0.3);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
