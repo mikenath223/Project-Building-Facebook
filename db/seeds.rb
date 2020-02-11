@@ -8,13 +8,13 @@
 
 puts "Creating mock-users"
 
-users = User.all.where(nickname: "") + User.all.where(nickname: nil)
 
-users.each do |u|
+10.times do |i|
   nickname = Faker::FunnyName.name
   location = Faker::Address.street_address + ', ' + Faker::Address.city
   age = Faker::Number.within(range: 18..70)
   gender = Faker::Gender.binary_type
-  
-  u.update_attributes(nickname: nickname,location: location, age: age, gender: gender)
+  email = "test#{i}@email.com"
+  password = 'password'
+  User.create!(nickname: nickname,location: location, age: age, gender: gender, email: email, password: password)
 end

@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_072509) do
+ActiveRecord::Schema.define(version: 2020_02_11_114459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chatmessages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "reciever_id"
+    t.string "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reciever_id"], name: "index_chatmessages_on_reciever_id"
+    t.index ["user_id"], name: "index_chatmessages_on_user_id"
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.bigint "friendship_id", null: false
+    t.string "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["friendship_id"], name: "index_chats_on_friendship_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -74,6 +92,9 @@ ActiveRecord::Schema.define(version: 2020_02_04_072509) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chatmessages", "users"
+  add_foreign_key "chatmessages", "users", column: "reciever_id"
+  add_foreign_key "chats", "friendships"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "friendships", "users"

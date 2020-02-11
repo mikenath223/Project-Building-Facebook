@@ -22,6 +22,10 @@ class User < ApplicationRecord
   has_many :pending_rebounds, -> { where confirmed: nil }, class_name: :Friendship, foreign_key: :friend_id
   has_many :confirmed_rebounds, -> { where confirmed: true }, class_name: :Friendship, foreign_key: :friend_id
 
+  has_many :chatmessages, dependent: :destroy
+  has_many :recieved_chats, class_name: :Chatmessage, foreign_key: :reciever_id, dependent: :destroy
+
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
