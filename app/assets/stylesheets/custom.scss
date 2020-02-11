@@ -65,6 +65,9 @@ ul {
   }
 }
 
+.hinge {
+  z-index: 3;
+}
 
 .form-signin h4 a[href="/users/auth/facebook"] {
   display: none;

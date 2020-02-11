@@ -1,12 +1,12 @@
 <%= provide(:title, 'Posts Feed') %>
 
 <section class="welcome">
-  <h2>Welcome to FaceBrook!!!</h2>
-  <h3><%= link_to "Find Friends <i class='fas fa-search'></i>".html_safe, users_path, class: "btn btn-success" %></h3>
+  <h2 class="animated fadeIn">Welcome to FaceBrook!!!</h2>
+  <h3 class="animmated hinge"><%= link_to "Find Friends <i class='fas fa-search'></i>".html_safe, users_path, class: "btn btn-success" %></h3>
 </section>
 
 <h3>Create new post</h3>
-<div class="post-form-index bg-white bounceInDown">
+<div class="post-form-index bg-white animated flipInX">
   <%= render 'create_post' %>
 </div>
 <h2 class="text-center m-5">Post Feed</h2>

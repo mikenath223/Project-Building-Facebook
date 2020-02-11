@@ -35,6 +35,10 @@ class User < ApplicationRecord
     end
   end
 
+  def chats(user)
+    chatmessages.where(reciever_id: user) + recieved_chats.where(user_id: user)
+  end
+
   def friends
     (confirmed_friendships.map(&:friend) + confirmed_rebounds.map(&:user)).uniq
   end

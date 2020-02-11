@@ -1,0 +1,31 @@
+<h1>Chatmessages</h1>
+<section class="chats-container">
+  <div class="friends bg-white">
+    <h1>Friends</h1>
+    <% if @friends %>
+    <% @friends.each do |fri| %>
+    <div class="animated slideInUp friend-each bg-white">
+      <%= link_to "#{ gravatar_for fri, size: 30 } #{ (fri.nickname || fri.email).capitalize }".html_safe, chatmessage_path(fri.id) %>
+    </div>
+
+    <div class="chat-wrapper">
+      <div class="chat">
+        <% if @chats %>
+        <% @chats.each do |c| %>
+        <p class="<%= check_sender(c) %> message animated slideInDown"><%= c.message %></p>
+        <% end %>
+        <% end %>
+      </div>
+      <div class="chat-form">
+        <%= form_for(@chat) do |f| %>
+        <%= f.text_field :message, class: "chat-field" %>
+        <%= f.submit "Send", class: "btn btn-primary"%>
+        <%= f.hidden_field "recipient", value: fri.email %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+
+</section>
