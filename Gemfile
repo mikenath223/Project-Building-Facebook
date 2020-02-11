@@ -30,6 +30,8 @@ gem 'jquery-rails', '4.3.5'
 gem 'omniauth-facebook'
 gem 'uglifier', '3.2.0'
 gem 'will_paginate', '3.1.7'
+gem 'faker'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -40,7 +42,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
