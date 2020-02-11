@@ -8,7 +8,7 @@
       <%= link_to "#{ gravatar_for fri, size: 30 } #{ (fri.nickname || fri.email).capitalize }".html_safe, chatmessage_path(fri.id) %>
     </div>
 
-    <div class="chat-wrapper">
+    <div class="<%= check_recipient(fri.id, @params) %> chat-wrapper">
       <div class="chat">
         <% if @chats %>
         <% @chats.each do |c| %>

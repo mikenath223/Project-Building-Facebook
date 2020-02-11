@@ -36,7 +36,7 @@ class User < ApplicationRecord
   end
 
   def chats(user)
-    chatmessages.where(reciever_id: user) + recieved_chats.where(user_id: user)
+    recieved_chats.where(user_id: user) + chatmessages.where(reciever_id: user)
   end
 
   def friends

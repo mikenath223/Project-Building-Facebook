@@ -1,7 +1,8 @@
 class ChatmessagesController < ApplicationController
   
   def show
-    @chats = current_user.chats(@reciever_id)
+    @params = params[:id]
+    @chats = current_user.chats(@params)
     @friends = current_user.friends
     @chat = Chatmessage.new
   end
