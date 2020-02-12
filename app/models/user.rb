@@ -36,7 +36,8 @@ class User < ApplicationRecord
   end
 
   def chats(user)
-    recieved_chats.where(user_id: user) + chatmessages.where(reciever_id: user)
+   chats = recieved_chats.where(user_id: user) + chatmessages.where(reciever_id: user)
+   ordered_chats = chats.sort_by { |k, v| v if k == :created_at  }
   end
 
   def friends

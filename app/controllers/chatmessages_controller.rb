@@ -11,7 +11,7 @@ class ChatmessagesController < ApplicationController
     recipient = User.find_by(email: chat_params[:recipient])
     @chat = Chatmessage.new(user: current_user, reciever: recipient, message: chat_params[:message])
     if @chat.save
-      flash.now[:success] = "Message sent"
+      ChatmessageChannel.broadcast_to Chatmesage chat_params[:message]
       redirect_to chatmessage_path(recipient)
     else
       flash.now[:alert] = "Error"  

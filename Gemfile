@@ -31,6 +31,7 @@ gem 'omniauth-facebook'
 gem 'uglifier', '3.2.0'
 gem 'will_paginate', '3.1.7'
 gem 'faker'
+gem 'redis'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
