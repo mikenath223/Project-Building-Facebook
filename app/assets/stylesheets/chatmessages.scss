@@ -21,7 +21,7 @@
 .friends-chat {
   width: max-content;
   margin-right: auto;
-  height: 550px;
+  height: 350px;
   overflow-y: scroll;
   border-radius: 10px;
   h3 {
@@ -39,8 +39,7 @@
   border-radius: 10px;
   border: 5px solid silver;
   margin-bottom: 10px;
-  min-height: 250px;
-  max-height: 500px;
+  height: 420px;
   overflow-y: scroll;
   .float-right {
     margin-left: auto;

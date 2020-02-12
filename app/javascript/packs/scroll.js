@@ -1,3 +1,3 @@
 const chat = document.querySelector('.chat')
 
-window.onload(chat.scrollTo(0, chat.scrollHeight))
+document.body.onload(chat.scrollTo(0, chat.scrollHeight))
