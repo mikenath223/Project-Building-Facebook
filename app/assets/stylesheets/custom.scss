@@ -122,6 +122,14 @@ ul {
   right: 10px;
 }
 
+h1,
+h2,
+h3 {
+  background-color: rgba(192, 192, 192, 0.322);
+  padding: 4px;
+  text-align: center;
+  margin-top: 40px;
+}
 
 .container-box {
   position: relative;
@@ -131,13 +139,6 @@ ul {
   border-bottom-right-radius: 20px;
   a {
     text-decoration: none;
-  }
-  h1,
-  h2,
-  h3 {
-    background-color: rgba(192, 192, 192, 0.322);
-    padding: 4px;
-    text-align: center;
   }
   button {
     margin: 5px;
@@ -162,6 +163,11 @@ ul {
   padding: 0 15px;
   background-color: rgb(43, 92, 184);
   animation: slideInOut 8s forwards 0.3s ease-in-out;
+}
+
+.container-friends {
+  display: grid;
+  grid-template: repeat(auto-fill, 1fr) / repeat(4, 1fr);
 }
 
 .friends {
@@ -215,6 +221,7 @@ ul {
   background-color: cornflowerblue;
   padding: 10px;
   border-radius: 10px;
+  margin-top: 60px;
   h2 {
     font-style: italic;
     border: 2px solid silver;
@@ -477,7 +484,7 @@ header {
     }
   }
   .container-box {
-    margin-top: 120px;
+    margin-top: 50px;
   }
 
   .bg-white {

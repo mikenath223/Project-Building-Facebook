@@ -1,24 +1,26 @@
 <h1>Chatmessages</h1>
 <section class="chats-container">
-  <div class="friends bg-white">
-    <h1>Friends</h1>
+  <div class="friends-chat bg-white">
+    <h3>Friends</h3>
     <% if @friends %>
     <% @friends.each do |fri| %>
-    <div class="animated slideInUp friend-each bg-white">
+    <p class="animated slideInUp friend-each bg-white">
       <%= link_to "#{ gravatar_for fri, size: 30 } #{ (fri.nickname || fri.email).capitalize }".html_safe, chatmessage_path(fri.id) %>
-    </div>
-
+    </p>
     <div class="<%= check_recipient(fri.id, @params) %> chat-wrapper">
       <div class="chat">
         <% if @chats %>
         <% @chats.each do |c| %>
-        <p class="<%= check_sender(c) %> message animated slideInDown"><%= c.message %></p>
+        <div class="<%= check_sender(c) %> message animated slideInDown" id="msg">
+          <p><%= c.message %></p>
+          <small><%= time_ago_in_words(c.created_at) %></small>
+        </div>
         <% end %>
         <% end %>
       </div>
       <div class="chat-form">
-        <%= form_for(@chat) do |f| %>
-        <%= f.text_field :message, class: "chat-field" %>
+        <%= form_for @chat, remote: true do |f| %>
+        <%= f.text_field :message, placeholder: "Enter message...", autocomplete: "off",class: "chat-field" %>
         <%= f.submit "Send", class: "btn btn-primary"%>
         <%= f.hidden_field "recipient", value: fri.email %>
         <% end %>
@@ -29,3 +31,5 @@
   </div>
 
 </section>
+
+<%= javascript_pack_tag 'scroll' %>
