@@ -13,7 +13,7 @@
     <p>Joined FaceBrook: <span class="badge badge-pill"><%= time_ago_in_words(u.created_at) %> ago.</p>
     <% if friends?(u) %>
     <p class="bg-success text-center badge badge-pill float-elem">Friends <i class='fas fa-user-friends'></i></p>
-    <%= link_to "Chat".html_safe, chatmessage_path(u), class: "btn btn-success" %>
+    <%= link_to "Chat <i class='fas fa-comments'></i>".html_safe, chatmessage_path(u), class: "btn btn-success" %>
     <%= link_to "<span>Unfriend</span> <i class='far fa-frown-open'></i>".html_safe, delete_friend_path(request_data(u)), method: :delete, data: { confirm: 'Are you sure you want to unfriend the user' }, class: "btn btn-danger"  %>
     <% elsif pending_notif?(u) %>
     <%= button_to "Accept Request", accept_path(request_data(u)), class: "btn btn-info"  %>

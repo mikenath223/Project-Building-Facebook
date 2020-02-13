@@ -9,7 +9,11 @@
   <% if owner?(@user) %>
   <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-primary" %>
 <% else %>
-  <%= link_to "Chat".html_safe, chatmessage_path(@user), class: "btn btn-success" %>
+  <% if friends?(@user) %>
+  <%= link_to "Chat <i class='fas fa-comments'></i>".html_safe, chatmessage_path(@user), class: "btn btn-success" %>
+  <% else %>
+  <%= link_to "Send message request".html_safe, message_request_path(@user), class: "btn btn-info" %>
+  <% end %>
   <% end %>
 </ul>
 <h3> User Posts </h3>

@@ -6,6 +6,11 @@ module PostsHelper
   end
 
   def get_user(var)
+    if var.to_i.is_a? Numeric
+      user = User.find(var)
+      return user.email if user.nickname.blank? 
+      return user.nickname
+    end
     return var.user.email if var.user.nickname.blank?
     var.user.nickname
   end

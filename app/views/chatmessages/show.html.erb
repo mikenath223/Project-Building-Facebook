@@ -1,14 +1,15 @@
 <h1>Chatmessages</h1>
 <section class="chats-container">
   <div class="friends-chat bg-white">
-    <small class="change-text">Click to see more...</small>
-    <h3 class="head-friend">Friends</h3>
     <% if @friends %>
+    <small>Click to see more...</small>
+    <h3 class="head-friend change-text">Friends</h3>
     <% @friends.each do |fri| %>
       <p class="animated slideInUp friend-each bg-white">
         <%= link_to "#{ gravatar_for fri, size: 30 } #{ (fri.nickname || fri.email).capitalize }".html_safe, chatmessage_path(fri.id) %>
       </p>
     <div class="<%= check_recipient(fri.id, @params) %> chat-wrapper">
+      <h4 class= "btn btn-success chat-user"><%= get_user(@params) %></h4>
       <div class="chat" id="chats">
         <% if @chats %>
         <% @chats.each do |c| %>
@@ -33,8 +34,9 @@
     <% end %>
 
     <% else %>
-
     <div class="chat-wrapper">
+      <span class="btn btn-success request"><%= get_user(@params) %></span>
+      <h3>Message request</h3>
       <div class="chat" id="chats">
         <% if @chats %>
         <% @chats.each do |c| %>
@@ -48,7 +50,7 @@
         <% end %>
         <% end %>
       </div>
-      <div class="chat-form">
+      <div class="chat-form check">
         <%= form_for @chat, remote: true do |f| %>
         <%= f.text_field :message, placeholder: "Enter message...", autocomplete: "off",class: "chat-field" %>
         <%= f.submit "Send", class: "btn btn-primary"%>

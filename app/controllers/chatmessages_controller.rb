@@ -8,8 +8,7 @@ class ChatmessagesController < ApplicationController
   end
   
   def message_request
-    @recieved = params[:id].split('.')
-    @params = @recieved[0]
+    @params = params[:id]
     @chats = current_user.chats(@params)
     @chat = Chatmessage.new
     render 'show'
@@ -24,7 +23,8 @@ class ChatmessagesController < ApplicationController
       #                               time: @chat.created_at
       redirect_to chatmessage_path(recipient)
     else
-      flash.now[:alert] = "Error"  
+      flash.now[:alert] = "Error"
+      render 'show'
     end
   end
 

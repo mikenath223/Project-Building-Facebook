@@ -4,19 +4,31 @@ chats.forEach((e) => {
   e.scrollTo(0, e.scrollHeight);
 });
 
+let count = 0;
+const toggleText = ["Click to hide...", "Friends"];
 const text = document.querySelector(".change-text");
 const headerFriend = document.querySelector(".head-friend");
 const friendsChat = document.querySelector(".friends-chat");
 const chatWrapper = document.querySelectorAll(".chat-wrapper");
+
+if (document.querySelector(".request")) {
+  friendsChat.setAttribute("style", "background-color: none; height: 0px");  
+  
+  document.querySelector(".chat-wrapper").style.top = "10px";
+}
+
+
 headerFriend.addEventListener('click', () => {
   toggleClass(friendsChat, "friends-chat-prop");
   chats.forEach((e) => {
-    e.setAttribute("style", "height: 120px; bottom: 0");
+    toggleClass(e, "chat-prop")
   });
   chatWrapper.forEach((e) => {
-    e.setAttribute("style", "top: initial; bottom: -140px, height: 120px");
+    toggleClass(e, "chat-wrapper-prop")
   });
-  text.textContent = "Click to hide...";
+  if (count > 1) {count = 0};
+  text.textContent = toggleText[count];
+  count += 1;
 });
 
 function toggleClass(elem, cssClass) {

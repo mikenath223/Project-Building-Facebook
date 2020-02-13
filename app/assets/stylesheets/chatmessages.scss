@@ -83,7 +83,6 @@
 .chat-wrapper {
   position: absolute;
   top: 10px;
-  display: none;
   right: 0;
   margin-top: 10px;
   width: 70%;
@@ -98,15 +97,21 @@
   }
 }
 
+.hide-chat {
+  display: none;
+}
+
 .show-chat {
   display: block;
 }
-
 
 @media only screen and (max-width: 800px) {
   .chat-wrapper {
     width: 100%;
     top: 90px;
+  }
+  .chat-user {
+    margin: 0;
   }
   .new_chatmessage {
     position: fixed;
@@ -157,11 +162,15 @@
   .chat-wrapper-prop {
     top: initial;
     bottom: -140px;
+    height: 120px;
   }
 }
 
 @media only screen and (max-width: 430px) {
-  .chat-wrapper .chat {
-    height: 340px;
+  .chat-wrapper {
+    margin-top: -5px;
+    .chat {
+      height: 340px;
+    }
   }
 }

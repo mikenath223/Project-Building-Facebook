@@ -167,7 +167,7 @@ h3 {
 
 .container-friends {
   display: grid;
-  grid-template: repeat(auto-fill, 1fr) / repeat(4, 1fr);
+  grid-template: repeat(4, 1fr) / repeat(auto-fill, 1fr);
 }
 
 .friends {
