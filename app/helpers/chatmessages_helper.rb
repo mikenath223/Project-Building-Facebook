@@ -8,4 +8,9 @@ module ChatmessagesHelper
     return "show-chat" if user.to_i == params.to_i
     "hide-chat"
   end
+
+  def check_avatar(chat)
+    return current_user if chat.user_id == current_user.id
+    User.find(chat.reciever_id)
+  end
 end

@@ -18,12 +18,12 @@
     <% elsif pending_notif?(u) %>
     <%= button_to "Accept Request", accept_path(request_data(u)), class: "btn btn-info"  %>
     <% elsif !relationship?(u) %>
-    <%= link_to "Send message request".html_safe, chatmessage_path(u), class: "btn btn-info" %>
+    <%= link_to "Send message request".html_safe, message_request_path(u), class: "btn btn-info" %>
     <%= button_to "Send Friend Request", friendships_path(friendship_data(u)), method: :post, class: "btn btn-success" %>
     <% else %>
     <p class="bg-warning text-center badge badge-pill float-elem"><i class="far fa-question-circle"></i> Awaiting
       Response</p>
-      <%= link_to "Send message request".html_safe, chatmessage_path(u), class: "btn btn-info" %>
+      <%= link_to "Send message request".html_safe, message_request_path(u), class: "btn btn-info" %>
     <%= link_to "<span>Delete Request</span> ".html_safe, delete_friend_path(request_data(u)), method: :delete, data: { confirm: 'Are you sure you want to delete this request' }, class: "btn btn-danger"  %>
     <% end %>
   </div>

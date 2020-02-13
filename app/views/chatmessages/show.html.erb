@@ -13,7 +13,7 @@
         <% if @chats %>
         <% @chats.each do |c| %>
         <div class="<%= check_sender(c) %> message animated slideInDown" id="msg">
-          <%= gravatar_for fri, size: 30 %>
+          <%= gravatar_for check_avatar(c), size: 30 %>
           <div>
             <p><%= c.message %></p>
             <small><%= time_ago_in_words(c.created_at) %></small>
@@ -31,6 +31,32 @@
       </div>
     </div>
     <% end %>
+
+    <% else %>
+
+    <div class="chat-wrapper">
+      <div class="chat" id="chats">
+        <% if @chats %>
+        <% @chats.each do |c| %>
+        <div class="<%= check_sender(c) %> message animated slideInDown" id="msg">
+          <%= gravatar_for check_avatar(c), size: 30 %>
+          <div>
+            <p><%= c.message %></p>
+            <small><%= time_ago_in_words(c.created_at) %></small>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+      <div class="chat-form">
+        <%= form_for @chat, remote: true do |f| %>
+        <%= f.text_field :message, placeholder: "Enter message...", autocomplete: "off",class: "chat-field" %>
+        <%= f.submit "Send", class: "btn btn-primary"%>
+        <%= f.hidden_field "recipient", value: User.find(@params).email %>
+        <% end %>
+      </div>
+    </div>
+
     <% end %>
   </div>
 

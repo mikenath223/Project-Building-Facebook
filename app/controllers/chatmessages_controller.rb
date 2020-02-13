@@ -7,6 +7,14 @@ class ChatmessagesController < ApplicationController
     @chat = Chatmessage.new
   end
   
+  def message_request
+    @recieved = params[:id].split('.')
+    @params = @recieved[0]
+    @chats = current_user.chats(@params)
+    @chat = Chatmessage.new
+    render 'show'
+  end
+
   def create
     recipient = User.find_by(email: chat_params[:recipient])
     @chat = Chatmessage.new(user: current_user, reciever: recipient, message: chat_params[:message])

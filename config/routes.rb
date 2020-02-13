@@ -1,14 +1,8 @@
 Rails.application.routes.draw do
 
-  
+  get '/messagerequest/:id', to: 'chatmessages#message_request', as: 'message_request'
   resources :chatmessages
-  # get 'chat/:id', to: 'chatmessages#index', as: 'chatmessage'
-  # # get 'chat/:id', to: 'chatmessages#show', as: 'show_chats'
-  # post 'chat', to: 'chatmessages#create', as: 'send_chat'
-  # delete 'chat', to: 'chatmessages#create', as: 'delete_chat'
 
-
-  # get 'chatmessages/delete'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' }
 
   resources :posts
