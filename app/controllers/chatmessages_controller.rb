@@ -21,7 +21,7 @@ class ChatmessagesController < ApplicationController
       # ActionCable.server.broadcast 'room_channel',
       #                               content: @chat.message,
       #                               time: @chat.created_at
-      redirect_to chatmessage_path(recipient)
+      redirect_back(fallback_location: users_path)
     else
       flash.now[:alert] = "Error"
       render 'show'
