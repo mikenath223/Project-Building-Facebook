@@ -8,6 +8,8 @@
   <li>Age: <%= age(@user) %></li>
   <% if owner?(@user) %>
   <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-primary" %>
+<% else %>
+  <%= link_to "Chat".html_safe, chatmessage_path(@user), class: "btn btn-success" %>
   <% end %>
 </ul>
 <h3> User Posts </h3>

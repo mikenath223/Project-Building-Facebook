@@ -471,6 +471,11 @@ header {
   }
 }
 
+.users-wrap .button_to {
+  border: none
+}
+
+
 @media only screen and (max-width: 800px) {
   .nav .head-links {
     display: none;
