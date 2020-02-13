@@ -12,8 +12,11 @@
         <% if @chats %>
         <% @chats.each do |c| %>
         <div class="<%= check_sender(c) %> message animated slideInDown" id="msg">
-          <p><%= c.message %></p>
-          <small><%= time_ago_in_words(c.created_at) %></small>
+          <%= gravatar_for fri, size: 30 %>
+          <div>
+            <p><%= c.message %></p>
+            <small><%= time_ago_in_words(c.created_at) %></small>
+          </div>
         </div>
         <% end %>
         <% end %>

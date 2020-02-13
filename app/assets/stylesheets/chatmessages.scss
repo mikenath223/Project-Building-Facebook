@@ -44,6 +44,10 @@
   .float-right {
     margin-left: auto;
     text-align: right;
+    flex-direction: row-reverse;
+    div {
+      margin-right: 14px;
+    }
   }
   .float-left {
     margin-right: auto;
@@ -51,10 +55,13 @@
   .message {
     font-size: 1.6rem;
     width: max-content;
-    border-radius: 15px;
+    display: flex;
     color: rgb(20, 16, 16);
     height: 50px;
     margin-bottom: 17px;
+    div {
+      margin-left: 5px;
+    }
      p {
       background-color: #fff;
       margin-bottom: 0px;
@@ -115,7 +122,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 80px;
+    height: 85px;
     width: 270px;
     overflow-y: hidden;
     overflow-x: scroll;
