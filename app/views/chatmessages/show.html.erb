@@ -1,14 +1,15 @@
 <h1>Chatmessages</h1>
 <section class="chats-container">
   <div class="friends-chat bg-white">
-    <h3>Friends</h3>
+    <small class="change-text">Click to see more...</small>
+    <h3 class="head-friend">Friends</h3>
     <% if @friends %>
     <% @friends.each do |fri| %>
-    <p class="animated slideInUp friend-each bg-white">
-      <%= link_to "#{ gravatar_for fri, size: 30 } #{ (fri.nickname || fri.email).capitalize }".html_safe, chatmessage_path(fri.id) %>
-    </p>
+      <p class="animated slideInUp friend-each bg-white">
+        <%= link_to "#{ gravatar_for fri, size: 30 } #{ (fri.nickname || fri.email).capitalize }".html_safe, chatmessage_path(fri.id) %>
+      </p>
     <div class="<%= check_recipient(fri.id, @params) %> chat-wrapper">
-      <div class="chat">
+      <div class="chat" id="chats">
         <% if @chats %>
         <% @chats.each do |c| %>
         <div class="<%= check_sender(c) %> message animated slideInDown" id="msg">

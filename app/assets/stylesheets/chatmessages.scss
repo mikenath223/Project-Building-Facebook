@@ -15,17 +15,19 @@
     input {
       margin-left: auto;
     }
-  }  
+  }
 }
 
 .friends-chat {
-  width: max-content;
   margin-right: auto;
   height: 350px;
   overflow-y: scroll;
   border-radius: 10px;
   h3 {
     margin-top: 0px;
+  }
+  small {
+    display: none;
   }
 }
 
@@ -35,12 +37,14 @@
 
 .chat {
   padding: 15px;
-  background-color: rgba(255, 235, 205, 0.3);
+  background-color: #fff;
   border-radius: 10px;
   border: 5px solid silver;
   margin-bottom: 10px;
   height: 420px;
   overflow-y: scroll;
+  z-index: -99;
+  transition: height 2s;
   .float-right {
     margin-left: auto;
     text-align: right;
@@ -57,17 +61,17 @@
     width: max-content;
     display: flex;
     color: rgb(20, 16, 16);
-    height: 50px;
     margin-bottom: 17px;
     div {
       margin-left: 5px;
     }
-     p {
+    p {
       background-color: #fff;
       margin-bottom: 0px;
       border-radius: 15px;
       padding: 5px;
-      width: calc(100% + 10px);
+      word-wrap: break-word;
+      width: 120px;
     }
     small {
       padding-left: 5px;
@@ -98,36 +102,33 @@
   display: block;
 }
 
+
 @media only screen and (max-width: 800px) {
   .chat-wrapper {
     width: 100%;
     top: 90px;
   }
   .new_chatmessage {
-  position: fixed;
-  bottom: 0;
-  margin: 0;
-  padding: 0;
-  width: 90%;
-  input[type="text"] {
-    width: 70%;
-  }
-  .btn {
-    width: 25%;
-    padding: 3px;
-    border-radius: 5px;
-  }
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    width: 90%;
+    input[type="text"] {
+      width: 70%;
+    }
+    .btn {
+      width: 25%;
+      padding: 3px;
+      border-radius: 5px;
+    }
   }
   .friends-chat {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
     height: 85px;
-    width: 270px;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    h3 {
-      display: none;
+    transition: height 2s;
+    small {
+      display: initial;
+      font-style: italic;
     }
   }
   .friend-each {
@@ -139,6 +140,28 @@
     }
   }
   .chat {
-    height: 370px;
+    height: 470px;
+    .message {
+      p {
+        width: 100px;
+      }
+    }
+  }
+  .friends-chat-prop {
+    height: 300px;
+  }
+  .chat-prop {
+    height: 120px;
+    bottom: 0;
+  }
+  .chat-wrapper-prop {
+    top: initial;
+    bottom: -140px;
+  }  
+}
+
+@media only screen and (max-width: 430px) {
+  .chat-wrapper .chat {
+    height: 340px;
   }
 }
