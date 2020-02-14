@@ -9,7 +9,7 @@
         <%= link_to "#{ gravatar_for fri, size: 30 } #{ (fri.nickname || fri.email).capitalize }".html_safe, chatmessage_path(fri.id) %>
       </p>
     <div class="<%= check_recipient(fri.id, @params) %> chat-wrapper">
-      <h4 class= "btn btn-success chat-user"><%= get_user(@params) %></h4>
+      <h4 class= "btn btn-success chat-user"><%= get_current_chatter(@params) %></h4>
       <div class="chat" id="chats">
         <% if @chats %>
         <% @chats.each do |c| %>
@@ -35,7 +35,7 @@
 
     <% else %>
     <div class="chat-wrapper">
-      <span class="btn btn-success request"><%= get_user(@params) %></span>
+      <span class="btn btn-success request"><%= get_current_chatter(@params) %></span>
       <h3>Message request</h3>
       <div class="chat" id="chats">
         <% if @chats %>

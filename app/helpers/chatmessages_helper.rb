@@ -18,4 +18,10 @@ module ChatmessagesHelper
 
     User.find(chat.reciever_id)
   end
+
+  def get_current_chatter(var)
+    user = User.find(var)
+    return user.email if user.nickname.blank?
+    user.nickname
+  end
 end
