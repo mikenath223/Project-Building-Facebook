@@ -1,6 +1,5 @@
-<h1>Chatmessages</h1>
 <section class="chats-container">
-  <div class="friends-chat bg-white">
+  <div class="friends-chat">
     <% if @friends %>
     <small>Click to see more...</small>
     <h3 class="head-friend change-text">Friends</h3>
@@ -9,7 +8,7 @@
         <%= link_to "#{ gravatar_for fri, size: 30 } #{ (fri.nickname || fri.email).capitalize }".html_safe, chatmessage_path(fri.id) %>
       </p>
     <div class="<%= check_recipient(fri.id, @params) %> chat-wrapper">
-      <h4 class= "btn btn-success chat-user"><%= get_current_chatter(@params) %></h4>
+      <h4 class= "btn btn-success chat-user"> <span class="bg-danger">Chats:</span> <%= get_current_chatter(@params) %></h4>
       <div class="chat" id="chats">
         <% if @chats %>
         <% @chats.each do |c| %>
@@ -35,8 +34,8 @@
 
     <% else %>
     <div class="chat-wrapper">
-      <span class="btn btn-success request"><%= get_current_chatter(@params) %></span>
       <h3>Message request</h3>
+      <span class="btn btn-success request"><span class="bg-warning">Message:</span> <%= get_current_chatter(@params) %></span>
       <div class="chat" id="chats">
         <% if @chats %>
         <% @chats.each do |c| %>

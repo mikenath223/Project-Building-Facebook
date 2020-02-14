@@ -18,11 +18,13 @@
 }
 
 .friends-chat {
+  margin-top: 30px;
   margin-right: auto;
   height: 350px;
   width: 250px;
   overflow-y: scroll;
   border-radius: 10px;
+  background-color: #fff;
   h3 {
     margin-top: 0px;
   }
@@ -113,19 +115,21 @@
   .chat-user {
     margin: 0;
   }
-  .new_chatmessage {
-    position: fixed;
-    bottom: 0;
-    margin: 0;
-    padding: 0;
-    width: 90%;
-    input[type="text"] {
-      width: 70%;
-    }
-    .btn {
-      width: 25%;
-      padding: 3px;
-      border-radius: 5px;
+  .chats-container {
+    .new_chatmessage {
+      position: fixed;
+      bottom: 0;
+      margin: 0;
+      padding: 0;
+      width: 90%;
+      input[type="text"] {
+        width: 70%;
+      }
+      .btn {
+        width: 25%;
+        padding: 3px;
+        border-radius: 5px;
+      }
     }
   }
   .friends-chat {
@@ -145,7 +149,7 @@
     }
   }
   .chat {
-    height: 400px;
+    height: 410px;
     .message {
       p {
         width: 100px;
