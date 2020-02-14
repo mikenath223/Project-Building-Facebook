@@ -24,14 +24,14 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bootstrap-sass', '3.4.1'
 gem 'devise'
+gem 'faker'
 gem 'figaro'
 gem 'font-awesome-rails'
 gem 'jquery-rails', '4.3.5'
 gem 'omniauth-facebook'
+gem 'redis'
 gem 'uglifier', '3.2.0'
 gem 'will_paginate', '3.1.7'
-gem 'faker'
-gem 'redis'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

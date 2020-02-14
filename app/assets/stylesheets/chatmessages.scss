@@ -8,9 +8,8 @@
     border: none;
     text-align: right;
     input[type="text"] {
-      max-width: 400px;
-      min-width: 150px;
-      padding-left: 5px;
+      width: 450px;
+      padding-left: 15px;
     }
     input {
       margin-left: auto;
@@ -42,7 +41,7 @@
   border-radius: 10px;
   border: 5px solid silver;
   margin-bottom: 10px;
-  height: 420px;
+  height: 400px;
   overflow-y: scroll;
   z-index: -99;
   transition: height 2s;
@@ -146,7 +145,7 @@
     }
   }
   .chat {
-    height: 470px;
+    height: 400px;
     .message {
       p {
         width: 100px;

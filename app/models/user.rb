@@ -25,7 +25,6 @@ class User < ApplicationRecord
   has_many :chatmessages, dependent: :destroy
   has_many :recieved_chats, class_name: :Chatmessage, foreign_key: :reciever_id, dependent: :destroy
 
-
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -36,20 +35,22 @@ class User < ApplicationRecord
   end
 
   def chats(user)
-   chats = recieved_chats.where(user_id: user) + chatmessages.where(reciever_id: user)
-   ordered_chats = chats.sort_by { |k, v| k[:created_at]  }
+    chats = recieved_chats.where(user_id: user) + chatmessages.where(reciever_id: user)
+    chats.sort_by { |k, _v| k[:created_at] }
   end
 
   def friends
-    (confirmed_friendships.map(&:friend) + confirmed_rebounds.map(&:user)).uniq
+    friends = confirmed_friendships.eager_load(:friend).map(&:friend)
+    rebounds = confirmed_rebounds.eager_load(:friend).map(&:user)
+    (friends + rebounds).uniq
   end
 
   def friend_requests
-    pending_friendships.map(&:friend)
+    pending_friendships.eager_load(:friend).map(&:friend)
   end
 
   def rebound_requests
-    pending_rebounds.map(&:user)
+    pending_rebounds.eager_load(:friend).map(&:user)
   end
 
   def accept_request(user)

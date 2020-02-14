@@ -20,8 +20,4 @@ module FriendshipsHelper
   def friends?(other_user)
     other_user.friend?(current_user)
   end
-
-  def has_friends?(user)
-    current_user.friends.nil?
-  end
 end
