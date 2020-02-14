@@ -19,9 +19,9 @@ class ChatmessagesController < ApplicationController
     recipient = User.find_by(email: chat_params[:recipient])
     @chat = Chatmessage.new(user: current_user, reciever: recipient, message: chat_params[:message])
     if @chat.save
-      # ActionCable.server.broadcast 'room_channel',
-      #                               content: @chat.message,
-      #                               time: @chat.created_at
+      ActionCable.server.broadcast 'room_channel',
+                                    content: @chat.message,
+                                    time: @chat.created_at
       redirect_back(fallback_location: users_path)
     else
       flash.now[:alert] = 'Error'
