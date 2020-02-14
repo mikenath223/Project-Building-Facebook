@@ -40,6 +40,9 @@
 In this project users can sign up either on the app or through their facebook account and follow other users.
 [Facebook](https://www.facebook.com/). The main goal is to put in practice the main concepts of Associations, Authentication with devise gem, and units & integration tests in rails.
 
+<img src="docs/screenshot.png" alt="screenshot" width="1000" height="700">
+
+
 # Validations
 
 -Rubocop
