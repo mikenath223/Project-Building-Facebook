@@ -408,9 +408,9 @@ header {
   border: 2px solid silver;
   max-width: 380px;
   min-width: 250px;
-  height: 530px;
   background-color: rgba(255, 255, 255, 0.6);
-  margin: auto;
+  margin: 40px auto;
+  padding-bottom: 20px;
   form {
     display: flex;
     flex-direction: column;
@@ -427,7 +427,7 @@ header {
     }
   }
   a {
-    margin-left: 10%;
+    margin-left: 8%;
     background-color: #4f9af086;
     padding: 5px;
     border: 2px solid silver;
@@ -440,6 +440,7 @@ header {
     background-color: rgb(0, 102, 255);
     border: none;
     border-radius: 10px;
+    margin-left: 8%;
   }
 }
 
