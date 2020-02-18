@@ -418,10 +418,14 @@ header {
     justify-content: space-around;
     height: 55%;
     margin-bottom: 20px;
+    .field {
+      margin-bottom: 10px;
+    }
     input[type="submit"] {
       width: 100px;
       background-color: rgba(52, 114, 212, 0.671);
       border: none;
+      margin-top: 5px;
       font-size: 23px;
       font-weight: bold;
     }
