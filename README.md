@@ -84,7 +84,13 @@ In this project users can sign up either on the app or through their facebook ac
 
 # Authors
 
-* [Ukeje Michgolden](https://github.com/mikenath223)
+**Michgolden Ukeje**
+
+- Github: [@mikenath223](https://github.com/mikenath223)
+- Twitter: [@Michgolden_Nath](https://twitter.com/MichgoldenU)
+- Linkedin: [Ukeje Michgolden](https://https://www.linkedin.com/in/michgoldenukeje/)
+  <br />
+  
 * [Mario E. Delgado](https://github.com/mariodena)
 
 # License
