@@ -91,7 +91,7 @@ In this project users can sign up either on the app or through their facebook ac
 - Linkedin: [Ukeje Michgolden](https://https://www.linkedin.com/in/michgoldenukeje/)
   <br />
   
-* [Mario E. Delgado](https://github.com/mariodena)
+**Mario E. Delgado**
 
 # License
 
