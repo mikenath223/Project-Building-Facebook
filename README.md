@@ -17,7 +17,7 @@
   </h3>
 
   <h3 align="center">
-	 Live Version link - https://brookapp.herokuapp.com/ or https://facebrookapp.herokuapp.com/
+	 Live Version link - https://brookapp.herokuapp.com/
   </h3>
 
   <p align="center">
@@ -45,7 +45,7 @@ In this project users can sign up either on the app or through their facebook ac
 
 # Validations
 
--Rubocop
+- Rubocop
 
 # Get Started
 
@@ -76,7 +76,6 @@ In this project users can sign up either on the app or through their facebook ac
 
 # Built With
 
-* Passion purple_heart for code.
 * `ruby` v2.6.5
 * `rails` v6.0.2+
 * `vscode` with _Ruby_ and _Rubocop_ extensions
